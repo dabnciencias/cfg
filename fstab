@@ -1,0 +1,18 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda2
+UUID=4143b7a9-25c3-4cd5-b611-30702e1d640a	/         	ext4      	rw,relatime	0 1
+
+# /dev/sda1
+UUID=5b9bb7e3-9875-4d3f-a0d2-6394c2aef0c9	none      	swap      	defaults  	0 0
+
+# External hard drive
+UUID=8A7ADFE97ADFCFD5				/media		ntfs-3g		defaults,nofail	0 2
+
+# Kobo Clara HD
+UUID=5BDA-63EB					/mnt/kobo	vfat		rw,sync,dev,exec,suid,auto,nouser,nofail,umask=000	0 2
+
+# /dev/sdb1
+UUID=2391-2310					/mnt/usb	vfat		rw,sync,dev,exec,suid,auto,nouser,nofail,umask=000	0 2
