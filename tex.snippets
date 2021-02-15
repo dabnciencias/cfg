@@ -166,6 +166,10 @@ snippet "inv" "inverse notation" rw
 ^{-1}
 endsnippet
 
+snippet "op" "opposite notation" rw
+^{op}
+endsnippet
+
 priority 10
 snippet "bar" "bar" rw
 \overline{$1}$0
@@ -196,8 +200,12 @@ snippet "([a-zA-Z])avec" "arrow vector postfix" riA
 \vec{`!p snip.rv=match.group(1)`}
 endsnippet 
 
-snippet "txt" "Text in math mode" iA
- \ \text{$1}$2 \ $0
+snippet "txt" "Text in math mode" rw
+\text{$1}
+endsnippet
+
+snippet OO "integer" iA
+\bullet
 endsnippet
 
 snippet "Ker" "Kernel" rw

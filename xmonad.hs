@@ -20,6 +20,7 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Layout
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders (smartBorders, noBorders)
+import XMonad.Layout.PerWorkspace
 import XMonad.ManageHook
 import XMonad.Util.EZConfig
 
@@ -44,7 +45,7 @@ myClickJustFocuses = False
 myBorderWidth   = 3
 
 -- No borders in fullscreen
-myLayoutHook    = smartBorders $ Tall 1 (3/100) (1/2) ||| Mirror (Tall 1 (3/100) (1/2)) ||| noBorders Full 
+myLayoutHook    =  smartBorders $ Mirror (Tall 1 (3/100) (1/2)) ||| Tall 1 (3/100) (1/2) ||| noBorders Full 
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -195,7 +196,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- Window rules
 
 myManageHook = composeAll
-  [ isFullscreen --> (doF W.focusDown <+> doFullFloat)
+  [ isFullscreen --> doFullFloat
   , className =? "Thunderbird" --> doShift "0"
   , className =? "discord" --> doShift "0"
   , className =? "TelegramDesktop" --> doShift "0"
