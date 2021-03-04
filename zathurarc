@@ -1,0 +1,4 @@
+# Goes in $HOME/.config/zathura/
+# (once Zathura has been installed)
+
+map <C-a> feedkeys ":exec okular %<Return>"

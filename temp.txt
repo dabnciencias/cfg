@@ -1,4 +1,8 @@
 #!/bin/sh
+# Simple script to disable the Logitech G300 keyboard,
+# since it is recognized as both mouse and keyboard
+# by default
+
 DEVICE_ID=$(xinput list |  grep "Logitech Gaming Mouse G300" | grep keyboard | sed 's/.*id=\([0-9]*\).*/\1/')
 
 if xinput -list-props $DEVICE_ID | grep "Device Enabled" | grep "1$" > /dev/null

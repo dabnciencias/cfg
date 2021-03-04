@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+/* Compatible with st-0.8.3 */
 
 /*
  * appearance

@@ -1,11 +1,5 @@
--- xmonad.hs
--- xmonad example config file.
---
--- A template showing all available configuration hooks,
--- and how to override the defaults in your own xmonad.hs conf file.
---
--- Normally, you'd only override those defaults you care about.
---
+-- Goes in $HOME/.xmonad/
+-- (once XMonad has been installed)
 
 import XMonad
 import Data.Monoid
@@ -127,10 +121,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_f    ), spawn "st -e vifm")
 
     -- Launch Firefox
-    , ((modm,               xK_w     ), spawn "firefox")
+    , ((modm,               xK_w     ), spawn "librewolf")
 
     -- Launch Firefox Private Window
-    , ((modm .|. shiftMask, xK_w     ), spawn "firefox --private-window")
+    , ((modm .|. shiftMask, xK_w     ), spawn "librewolf --private-window")
     
     -- Launch Reaper
     , ((modm,               xK_d     ), spawn "reaper")

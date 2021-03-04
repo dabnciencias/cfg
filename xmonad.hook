@@ -1,0 +1,12 @@
+# Goes in /etc/pacman.d/hooks/xmonad.hook
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = xmonad
+
+# Recompiles xmonad after any package update related to it as to
+# the "XMonad is recompiling and replacing itself..." error.
+[Action]
+Description = Recompiling xmonad...
+When = PostTransaction
+Exec = /usr/bin/sudo -u diek /usr/bin/xmonad --recompile
