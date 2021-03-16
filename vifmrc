@@ -1,6 +1,3 @@
-" Goes in $HOME/.config/vifm/vifmrc
-" (once vifm has been installed)
-
 " vim: filetype=vifm :
 " Sample configuration file for vifm (last updated: 9 September, 2020)
 " You can edit this file by hand.
@@ -174,20 +171,20 @@ command! reload :write | restart full
 " program.
 
 " Pdf
-filextype {*.pdf},<application/pdf> zathura %c %i &, apvlv %c, xpdf %c
-fileviewer {*.pdf},<application/pdf> zathura -nopgbrk %c -
+filextype {*.pdf},<application/pdf> devour zathura %c %i &, apvlv %c, xpdf %c
+fileviewer {*.pdf},<application/pdf> devour zathura -nopgbrk %c -
 
 " PostScript
 filextype {*.ps,*.eps,*.ps.gz},<application/postscript>
         \ {View in zathura}
-        \ zathura %f,
+        \ devour zathura %f,
         \ {View in gv}
         \ gv %c %i &,
 
 " Djvu
 filextype {*.djvu},<image/vnd.djvu>
         \ {View in zathura}
-        \ zathura %f,
+        \ devour zathura %f,
         \ {View in apvlv}
         \ apvlv %f,
 
@@ -203,11 +200,11 @@ fileviewer {*.flac},<audio/flac> soxi
 
 " Video
 filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+          \*.fl[icv],*.m2v,*.mov,*.gif,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
           \*.as[fx]},
          \<video/*>
         \ {View using mpv}
-        \ mpv %f,
+        \ devour mpv --fs --loop-file=inf %f,
         \ {View using ffplay}
         \ ffplay -fs -autoexit %f,
         \ {View using Dragon}
@@ -238,9 +235,9 @@ filetype {*.[1-8]},<text/troff> man ./%c
 fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " Images
-filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-        \ {View in vimiv}
-        \ vimiv %f,
+filextype {*.bmp,*.jpg,*.jpeg,*.png,*.xpm},<image/*>
+        \ {View in fim}
+        \ devour fim %f,
         \ {View in sxiv}
         \ sxiv %f,
         \ {View in gpicview}

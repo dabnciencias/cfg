@@ -1,5 +1,11 @@
--- Goes in $HOME/.xmonad/
--- (once XMonad has been installed)
+-- xmonad.hs
+-- xmonad example config file.
+--
+-- A template showing all available configuration hooks,
+-- and how to override the defaults in your own xmonad.hs conf file.
+--
+-- Normally, you'd only override those defaults you care about.
+--
 
 import XMonad
 import Data.Monoid
@@ -121,10 +127,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_f    ), spawn "st -e vifm")
 
     -- Launch Firefox
-    , ((modm,               xK_w     ), spawn "librewolf")
+    , ((modm,               xK_w     ), spawn "firefox")
 
     -- Launch Firefox Private Window
-    , ((modm .|. shiftMask, xK_w     ), spawn "librewolf --private-window")
+    , ((modm .|. shiftMask, xK_w     ), spawn "firefox --private-window")
     
     -- Launch Reaper
     , ((modm,               xK_d     ), spawn "reaper")
@@ -191,11 +197,13 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 myManageHook = composeAll
   [ isFullscreen --> doFullFloat
-  , className =? "Skype" --> doShift "0"
+  , className =? "TelegramDesktop" --> doShift "0"
   , className =? "Thunderbird" --> doShift "0"
   , className =? "discord" --> doShift "0"
-  , className =? "TelegramDesktop" --> doShift "0"
+  , className =? "Slack" --> doShift "0"
+  , className =? "workrave" --> doShift "0"
   , className =? "Transmission-gtk" --> doShift "0"
+  , className =? "Skype" --> doShift "0"
   , title =? "Media viewer" --> doFloat 
   , title =? " " --> doFloat
   , className =? "Steam" <&&> title =? "Stephen's Sausage Roll" --> doFullFloat
@@ -203,8 +211,8 @@ myManageHook = composeAll
   , title =? "Pony Island" --> doFullFloat
   , title =? "Manifold Garden" --> doFloat
   , className =? "zoom" <&&> title=? "Chat" --> doFloat
-  , className =? "mpv" --> doFullFloat
-  , className =? "firefox" <&&> title =? "Picture-in-Picture" --> doFloat
+  , className =? "mpv" --> doFloat
+  , className =? "librefox" <&&> title =? "Picture-in-Picture" --> doFloat
   ]
 
 ------------------------------------------------------------------------

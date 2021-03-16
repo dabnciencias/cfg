@@ -1,0 +1,104 @@
+1 Funciones de variable compleja (VARIABLE COMPLEJA)
+    Arfken, Caps. 6 & 7
+    Boas, Caps. 2 & 14
+    Nearing, Caps. 3 & 14
+    Needham, Caps. 8 & 9 (ÉSTE LO DEBO LEER YO PARA PREPARAR LAS CLASES)
+
+    Álgebra de los números complejos y funciones complejas (1 clase)
+        Arfken 6.1, Boas 14.1
+        Suplemento: Boas Cap. 2
+
+    Funciones analíticas. Mapeos, derivadas y ecuaciones de Cauchy-Riemann (1 clase)
+        Arfken 6.2, Boas 14.2 
+        Suplemento: Nearing 14.1
+
+    Integrales de línea en el plano complejo (1 clase)
+        Arfken 6.3 (saltando Stokes' Theorem Proof) y 6.4*, Boas 14.3 
+        Suplemento: Nearing 14.2
+
+    Series de Laurent a partir de las series de Fourier (ceros, polos y ramas) (2 clases)
+        Arfken 6.5, 6.6 y 6.7, Boas 14.4 
+        Suplemento: Nearing 14.3-14.5
+
+    Teorema del residuo y cálculo de residuos (2 clases)
+        Arfken 7.1, Boas 14.5-14.6
+        Suplemento: Boas 14.7-14.8
+
+    Aplicaciones (potencial electrostático y flujo de calor)
+        NPI
+
+2 Soluciones de ecuaciones diferenciales con variable compleja (TRANSFORMADAS INTEGRALES PT. I)
+    Arfken, Cap. 15
+    Asmar, Cap. 8
+    Boas, Cap. 15
+    Habermann, Cap. 13
+
+    Solución de ecuaciones diferenciales de segundo orden homogénea y no homogénea utilizando variable compleja. El oscilador armónico amortiguado con forzamiento
+        Arfken 9.5, Boas 8.5 & 8.6
+
+    Transformada de Laplace para encontrar las soluciones de una ecuación diferencial
+        Arfken 15.8-15.11, Asmar 8.1-8.3, Boas 15.3 & 15.9, Habermann 13.2 & 13.8
+
+    Transformada de Laplace inversa utilizando teorema de residuos
+        Arfken 15.12, Boas 15.6, Habermann 13.7
+
+3 Ecuaciones diferenciales parciales (FUNCIONES ESPECIALES)
+    Arfken, Caps. 9 & 10
+    Asmar, Caps. 3-6
+    Boas, Cap. 13
+    Habermann, Cap. 1,2,4,5
+    Nearing, Cap. 10
+
+    Clasificación de las ecuaciones diferenciales parciales
+        Arfken 9.1 & 9.2, 
+    
+    Teoría de Sturm-Liouville
+
+    Soluciones de ecuaciones diferenciales parciales en coordenadas cartesianas, polares y esféricas con valores a la frontera.
+        Series de Fourier
+        Funciones de Bessel
+        Polinomios de Legendre
+
+4 Transformada de Fourier (TRANSFORMADAS INTEGRALES PT. II)
+    Arfken, Caps. 15
+    Asmar, Cap. 7
+    Boas, Cap. 15
+    Habermann, Cap. 10
+    Nearing, Cap. 15
+
+    Representación integral de Fourier
+
+
+    Solución de ecuación diferencial parcial
+
+
+    La ecuación de calor y el Kernel de Gauss
+
+
+    El problema de Dirichlet y la fórmula integral de Poisson
+
+
+    Transformada seno y coseno
+
+
+    Solución de problemas a ecuaciones diferenciales parrciales no homogéneas utilizando la transformada de Fourier
+
+
+    Principio de Duhamel
+
+
+5 Función de Green (FUNCIONES DE GREEN)
+    Asmar, Cap. 12
+    Boas, Cap. 15
+    Habermann, Caps. 9 & 11
+
+    Propiedades generales de la función de Green
+
+
+    Función de Green para un potencial retardado
+
+
+    Aplicaciones de la función de Green en la ecuación de calor, ecuación de Schrödinger y ecuación Klein-Gordon
+
+
+    Tunciones de Green como solución al problema de radiación en electromagnetismo
