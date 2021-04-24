@@ -45,8 +45,6 @@ set encoding=utf-8
 " Mapping jf and fj to Esc
 inoremap fj <Esc>
 inoremap jf <Esc>
-inoremap fJ <Esc>
-inoremap jF <Esc>
 inoremap FJ <Esc>
 inoremap JF <Esc>
 

@@ -206,7 +206,8 @@ myManageHook = composeAll
   , className =? "Skype" --> doShift "0"
   , title =? "Media viewer" --> doFloat 
   , title =? " " --> doFloat
-  , className =? "Steam" <&&> title =? "Stephen's Sausage Roll" --> doFullFloat
+  , className =? "Steam" --> doShift "9"
+  , title =? "Stephen's Sausage Roll" --> doFullFloat
   , title =? "Brawlhalla" --> doFullFloat
   , title =? "Pony Island" --> doFullFloat
   , title =? "Manifold Garden" --> doFloat
