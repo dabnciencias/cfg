@@ -30,9 +30,18 @@ set ttyfast
 " Use the system clipboard for copy and paste
 set clipboard=unnamedplus
 
-" Show line numbers and change to green
+" Show line numbers
 set number
-highlight LineNr ctermfg=green
+
+" Color scheme (AZUL 33, ROJO=196, NARANJA=208, VERDE=82, MAGENTA=201)
+highlight Comment ctermfg=196
+highlight Constant ctermfg=white
+highlight Identifier ctermfg=201
+highlight LineNr ctermfg=82
+highlight PreProc ctermfg=33
+highlight Special ctermfg=208
+highlight Statement ctermfg=82
+highlight Type ctermfg=231
 
 " Show UTF-8 characters
 set autoindent
