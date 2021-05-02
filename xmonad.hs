@@ -1,21 +1,11 @@
 -- Goes in ~/.xmonad/
 
 import XMonad
-import Data.Monoid
-import System.Exit
-import Graphics.X11.ExtraTypes.XF86
-import XMonad.Actions.CycleWS
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.ManageHelpers
-import XMonad.Layout
-import XMonad.Layout.Accordion
-import XMonad.Layout.Fullscreen
+import XMonad.Actions.CycleWS     
+import XMonad.Hooks.DynamicLog    
+import XMonad.Hooks.EwmhDesktops  
+import XMonad.Hooks.ManageHelpers 
 import XMonad.Layout.NoBorders (smartBorders, noBorders)
-import XMonad.Layout.PerWorkspace
-import XMonad.ManageHook
-import XMonad.Util.EZConfig
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -26,10 +16,6 @@ myTerminal      = "st"
 -- Whether focus follows the mouse pointer
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
-
--- Whether clicking on a window to focus also passes the click to the window
-myClickJustFocuses :: Bool
-myClickJustFocuses = False
 
 -- Width of the window border in pixels
 myBorderWidth   = 3
@@ -47,9 +33,9 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9","0"]
 myFocusedBorderColor = "#FF7700" -- Orange
 myNormalBorderColor  = "#0088FF" -- Blue
 
-------------------------------------------------------------------------
-
--- Configure key bindings
+-------------------------------------------------------------
+------------------ Configure key bindings -------------------
+-------------------------------------------------------------
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
@@ -77,6 +63,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
 
+    -- change to next layout
+    , ((modm,               xK_space ), sendMessage NextLayout)
+
     -- next Workspace
     , ((modm,               xK_Up    ), nextWS)
 
@@ -91,9 +80,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch moc
     , ((modm .|. shiftMask, xK_m     ), spawn "st -e mocp")
-
-    -- quit xmonad
-    , ((modm,               xK_Escape), io (exitWith ExitSuccess))
 
     -- recompile and restart xmonad
     , ((modm .|. shiftMask, xK_r     ), spawn "xmonad --recompile; xmonad --restart")
@@ -143,9 +129,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0])
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
-----------------------------------------------------------------------
-
--- Mouse bindings: default actions bound to mouse events
+-------------------------------------------------------------
+--- Mouse bindings: default actions bound to mouse events ---
+-------------------------------------------------------------
 
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
@@ -159,9 +145,9 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
        ]
 
------------------------------------------------------------------------
-
--- Window rules
+-------------------------------------------------------------
+----------------------- Window rules ------------------------
+-------------------------------------------------------------
 
 myManageHook = composeAll
   [ isFullscreen --> doFullFloat
@@ -185,32 +171,30 @@ myManageHook = composeAll
   , className =? "librefox" <&&> title =? "Picture-in-Picture" --> doFloat
   ]
 
-------------------------------------------------------------------------
-
----- Command to launch the bar.
+-------------------------------------------------------------
+----------------- Command to launch the bar -----------------
+-------------------------------------------------------------
 
 myBar = "xmobar"
 
--- Custom PP, configure it as you like. It determines what is being written to the bar.
+-- Custom PP for what is being written to the bar
 
 myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
 
--- Key binding to toggle the gap for the bar.
+-- Key binding to toggle the gap for the bar
 
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
-------------------------------------------------------------------------
-
--- Run xmonad
+-------------------------------------------------------------
+------------------------ Run xmonad -------------------------
+-------------------------------------------------------------
 
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey (ewmh defaults)
 
 defaults = def {
-        -- simple stuff
         terminal            = myTerminal,
         layoutHook          = myLayoutHook,
         focusFollowsMouse   = myFocusFollowsMouse,
-        clickJustFocuses    = myClickJustFocuses,
         borderWidth         = myBorderWidth,
         modMask             = myModMask,
         workspaces          = myWorkspaces,
