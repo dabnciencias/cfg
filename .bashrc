@@ -9,12 +9,13 @@ if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]
 	exec startx
 fi
 
-alias ayayay="yay"
-alias fim="devour fim"
-alias zathura="devour zathura"
-alias black="doas ratslap --modify F3 --colour black"
-alias green="doas ratslap --modify F3 --colour green"
 alias activate="source venv/bin/activate"
+alias ayayay="yay"
+alias black="doas ratslap --modify F3 --colour black"
+alias fim="devour fim"
+alias green="doas ratslap --modify F3 --colour green"
+alias kobo="doas mount /dev/sdd /mnt/kobo -o umask=000"
+alias zathura="devour zathura"
 
 # Record mono alsa audio with ffmpeg
 monorec() { ffmpeg -f alsa -channels 1 -i default $HOME/Music/`date +%Y%m%d_%H%M%S`.wav ; }
