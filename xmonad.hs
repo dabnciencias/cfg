@@ -81,6 +81,27 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch moc
     , ((modm .|. shiftMask, xK_m     ), spawn "st -e mocp")
 
+    -- moc play from the beginning of the playlist
+    , ((0,                0x1008FF12 ), spawn "st -e mocp -p")
+
+    -- moc toggle play/pause
+    , ((0,                0x1008FF14 ), spawn "st -e mocp -G")
+
+    -- moc stop
+    , ((0,                0x1008FF15 ), spawn "st -e mocp -s")
+
+    -- moc previous track
+    , ((0,                0x1008FF16 ), spawn "st -e mocp -r")
+
+    -- moc next track
+    , ((0,                0x1008FF17 ), spawn "st -e mocp -f")
+
+    -- moc turn up volume
+    , ((0,                0x1008FF13 ), spawn "st -e mocp -v +10")
+
+    -- moc lower volume
+    , ((0,                0x1008FF11 ), spawn "st -e mocp -v -10")
+
     -- recompile and restart xmonad
     , ((modm .|. shiftMask, xK_r     ), spawn "xmonad --recompile; xmonad --restart")
 
