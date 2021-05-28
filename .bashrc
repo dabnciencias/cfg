@@ -1,3 +1,5 @@
+# Goes in ~/
+
 export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
 
 export PATH=$PATH:~/android-sdk-linux/tools

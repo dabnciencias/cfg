@@ -1,4 +1,4 @@
-# Goes in /etc/pacman.d/hooks/xmonad.hook
+# Goes in /etc/pacman.d/hooks/
 [Trigger]
 Operation = Upgrade
 Type = Package
