@@ -62,55 +62,28 @@ set vimhelp
 
 set norunexec
 
-" List of color schemes to try (picks the first one supported by the terminal)
+" Color scheme (AZUL 33, ROJO=196, NARANJA=208, VERDE=82, MAGENTA=201)
 
-colorscheme Default-256 Default
+highlight Win cterm=none ctermfg=default ctermbg=default
+highlight Directory cterm=bold ctermfg=82 ctermbg=default
+highlight Link cterm=bold ctermfg=208 ctermbg=default
+highlight BrokenLink cterm=reverse ctermfg=196 ctermbg=default
 
-" Format for displaying time in file list. For example:
-" TIME_STAMP_FORMAT=%m/%d-%H:%M
-" See man date or man strftime for details.
+highlight Socket cterm=bold ctermfg=125 ctermbg=default
+highlight Device cterm=bold ctermfg=196 ctermbg=default
+highlight Fifo cterm=bold ctermfg=cyan ctermbg=default
+highlight Executable cterm=bold ctermfg=201 ctermbg=default
 
-set timefmt=%m/%d\ %H:%M
+highlight Selected cterm=bold ctermfg=125 ctermbg=235
+highlight CurrLine cterm=bold ctermfg=33 ctermbg=default
 
-" Show list of matches on tab completion in command-line mode
-
-set wildmenu
-
-" Display completions in a form of popup with descriptions of the matches
-
-set wildstyle=popup
-
-" Display suggestions in normal, visual and view modes for keys, marks and
-" registers (at most 5 files).  In other view, when available.
-
-set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
-
-" Ignore case in search patterns unless it contains at least one uppercase
-" letter
-
-set ignorecase
-set smartcase
-
-" Don't highlight search results automatically
-
-set nohlsearch
-
-" Use increment searching (search while typing)
-set incsearch
-
-" Try to leave some space from cursor to upper/lower border in lists
-
-set scrolloff=4
-
-" Don't do too many requests to slow file systems
-
-if !has('win')
-    set slowfs=curlftpfs
-endif
-
-" Set custom status line look
-
-set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+highlight TopLine cterm=none ctermfg=196 ctermbg=black
+highlight TopLineSel cterm=bold ctermfg=196 ctermbg=black
+highlight StatusLine cterm=bold ctermfg=196 ctermbg=black
+highlight WildMenu cterm=underline,reverse ctermfg=white ctermbg=black
+highlight CmdLine cterm=none ctermfg=white ctermbg=black
+highlight ErrorMsg cterm=none ctermfg=196 ctermbg=black
+highlight Border cterm=none ctermfg=196 ctermbg=black
 
 " ------------------------------------------------------------------------------
 

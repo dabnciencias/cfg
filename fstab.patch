@@ -1,5 +1,3 @@
-# Static information about the filesystems.
-# See fstab(5) for details.
 
 # External hard drive
 UUID=8A7ADFE97ADFCFD5				/media		ntfs-3g		defaults,nofail	0 2

@@ -1,5 +1,5 @@
 #!/bin/sh
-# Disable the Logitech G300 keyboard, since it is recognized as both mouse and keyboard simultaneously
+# Execute to disable the Logitech G300 keyboard, since it is recognized as both mouse and keyboard simultaneously
 
 DEVICE_ID=$(xinput list |  grep "Logitech Gaming Mouse G300" | grep keyboard | sed 's/.*id=\([0-9]*\).*/\1/')
 

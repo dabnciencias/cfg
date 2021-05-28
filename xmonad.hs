@@ -179,7 +179,6 @@ myManageHook = composeAll
   , className =? "Slack" --> doShift "0"
   , className =? "Transmission-gtk" --> doShift "9"
   , className =? "Stremio" --> doShift "9"
-  , className =? "Skype" --> doShift "0"
   , title =? "Media viewer" --> doFloat 
   , title =? " " --> doFloat
   , className =? "Steam" --> doShift "9"
@@ -191,7 +190,8 @@ myManageHook = composeAll
   , className =? "zoom" <&&> title=? "Chat" --> doFloat
   , className =? "mpv" --> doFloat
   , className =? "QjackCtl" --> doRectFloat (W.RationalRect (1 % 1) (1 % 1) (4 % 10) (1 % 7))
-  , className =? "librefox" <&&> title =? "Picture-in-Picture" --> doFloat
+  , className =? "firefox" <&&> title =? "Picture-in-Picture" --> doFloat
+  --, className =? "librewolf" <&&> title =? "Picture-in-Picture" --> doFloat
   ]
 
 -------------------------------------------------------------
