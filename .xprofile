@@ -1,3 +1,5 @@
+# Goes in ~/
+
 # Keyboard Layout
 setxkbmap us altgr-intl
 

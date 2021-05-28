@@ -1,5 +1,6 @@
 -- Goes in ~/.xmonad/
 
+import Data.Ratio
 import XMonad
 import XMonad.Actions.CycleWS     
 import XMonad.Hooks.DynamicLog    
@@ -189,6 +190,7 @@ myManageHook = composeAll
   , title =? "Pummel Party" --> doFloat
   , className =? "zoom" <&&> title=? "Chat" --> doFloat
   , className =? "mpv" --> doFloat
+  , className =? "QjackCtl" --> doRectFloat (W.RationalRect (1 % 1) (1 % 1) (4 % 10) (1 % 7))
   , className =? "librefox" <&&> title =? "Picture-in-Picture" --> doFloat
   ]
 

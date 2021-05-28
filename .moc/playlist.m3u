@@ -1,54 +1,30 @@
 #EXTM3U
-#MOCSERIAL: 256
-#EXTINF:288,1 An Endless Sporadic - Anything (Ameliorate (EP))
-/media/Música/An Endless Sporadic/2008 - Ameliorate (EP)/01. Anything.mp3
-#EXTINF:267,2 An Endless Sporadic - Impulse (Ameliorate (EP))
-/media/Música/An Endless Sporadic/2008 - Ameliorate (EP)/02. Impulse.mp3
-#EXTINF:308,3 An Endless Sporadic - Sun Of Pearl (Ameliorate (EP))
-/media/Música/An Endless Sporadic/2008 - Ameliorate (EP)/03. Sun Of Pearl.mp3
-#EXTINF:228,4 An Endless Sporadic - The Adventures Of Jabubu (Ameliorate (EP))
-/media/Música/An Endless Sporadic/2008 - Ameliorate (EP)/04. The Adventures Of Jabubu.mp3
-#EXTINF:142,1 An Endless Sporadic - Waking Hours (An Endless Sporadic)
-/media/Música/An Endless Sporadic/2009 - An Endless Sporadic/01. Waking Hours.mp3
-#EXTINF:175,2 An Endless Sporadic - From The Blue (An Endless Sporadic)
-/media/Música/An Endless Sporadic/2009 - An Endless Sporadic/02. From The Blue.mp3
-#EXTINF:136,3 An Endless Sporadic - Point Of No Return (An Endless Sporadic)
-/media/Música/An Endless Sporadic/2009 - An Endless Sporadic/03. Point Of No Return.mp3
-#EXTINF:185,4 An Endless Sporadic - Shell (An Endless Sporadic)
-/media/Música/An Endless Sporadic/2009 - An Endless Sporadic/04. Shell.mp3
-#EXTINF:240,5 An Endless Sporadic - Treading Water (An Endless Sporadic)
-/media/Música/An Endless Sporadic/2009 - An Endless Sporadic/05. Treading Water.mp3
-#EXTINF:298,6 An Endless Sporadic - The Triangular Race Through Space (An Endless Sporadic)
-/media/Música/An Endless Sporadic/2009 - An Endless Sporadic/06. The Triangular Race Through Space.mp3
-#EXTINF:382,7 An Endless Sporadic - Eternal Bloom (An Endless Sporadic)
-/media/Música/An Endless Sporadic/2009 - An Endless Sporadic/07. Eternal Bloom.mp3
-#EXTINF:223,8 An Endless Sporadic - Subliminal Effect (An Endless Sporadic)
-/media/Música/An Endless Sporadic/2009 - An Endless Sporadic/08. Subliminal Effect.mp3
-#EXTINF:199,9 An Endless Sporadic - Beyond The Horizon (An Endless Sporadic)
-/media/Música/An Endless Sporadic/2009 - An Endless Sporadic/09. Beyond The Horizon.mp3
-#EXTINF:205,1 An Endless Sporadic - Derpulous (Derpulous (Single))
-/media/Música/An Endless Sporadic/2014 - Derpulous (Single)/01. Derpulous.mp3
-#EXTINF:420,1 An Endless Sporadic - Spaceship Factory (Spaceship Factory (Single))
-/media/Música/An Endless Sporadic/2014 - Spaceship Factory (Single)/01. Spaceship Factory.mp3
-#EXTINF:240,1 An Endless Sporadic - The Adventures Of Jabubu II (The Adventures Of Jabubu II (Single))
-/media/Música/An Endless Sporadic/2015 - The Adventures Of Jabubu II (Single)/01. The Adventures Of Jabubu II.mp3
-#EXTINF:354,1 An Endless Sporadic - The Departure (Magic Machine)
-/media/Música/An Endless Sporadic/2016 - Magic Machine/01. The Departure.mp3
-#EXTINF:304,2 An Endless Sporadic - Magic Machine (Magic Machine)
-/media/Música/An Endless Sporadic/2016 - Magic Machine/02. Magic Machine.mp3
-#EXTINF:186,3 An Endless Sporadic - Galactic Tactic (Magic Machine)
-/media/Música/An Endless Sporadic/2016 - Magic Machine/03. Galactic Tactic.mp3
-#EXTINF:335,4 An Endless Sporadic - Finding The Falls (Magic Machine)
-/media/Música/An Endless Sporadic/2016 - Magic Machine/04. Finding The Falls.mp3
-#EXTINF:314,5 An Endless Sporadic - The Assembly (Magic Machine)
-/media/Música/An Endless Sporadic/2016 - Magic Machine/05. The Assembly.mp3
-#EXTINF:255,6 An Endless Sporadic - Agile Descent (Magic Machine)
-/media/Música/An Endless Sporadic/2016 - Magic Machine/06. Agile Descent.mp3
-#EXTINF:534,7 An Endless Sporadic - Sky Run (Magic Machine)
-/media/Música/An Endless Sporadic/2016 - Magic Machine/07. Sky Run.mp3
-#EXTINF:259,8 An Endless Sporadic - Through The Fog (Magic Machine)
-/media/Música/An Endless Sporadic/2016 - Magic Machine/08. Through The Fog.mp3
-#EXTINF:174,9 An Endless Sporadic - Sea Voyage (Magic Machine)
-/media/Música/An Endless Sporadic/2016 - Magic Machine/09. Sea Voyage.mp3
-#EXTINF:267,10 An Endless Sporadic - Impulse II (Magic Machine)
-/media/Música/An Endless Sporadic/2016 - Magic Machine/10. Impulse II.mp3
+#MOCSERIAL: 3328
+#EXTINF:321,1 Chicha Libre - Popcorn Andino (Sonido Amazonico)
+/media/Música/Chicha Libre/Sonido Amazonico/01 Popcorn Andino.mp3
+#EXTINF:152,2 Chicha Libre - Yo No Fui (Sonido Amazonico)
+/media/Música/Chicha Libre/Sonido Amazonico/02 Yo No Fui.mp3
+#EXTINF:273,3 Chicha Libre - Gnosienne No. 1 (Sonido Amazonico)
+/media/Música/Chicha Libre/Sonido Amazonico/03 Gnosienne No. 1.mp3
+#EXTINF:259,11 Chicha Libre - sonido amazónico (Sonido Amazónico)
+/media/Música/Chicha Libre/Sonido Amazonico/11 sonido amazonico.mp3
+#EXTINF:244,12 Chicha Libre - primavera en la selva (Sonido Amazónico)
+/media/Música/Chicha Libre/Sonido Amazonico/12 primavera en la selva.mp3
+#EXTINF:143,13 Chicha Libre - mi plato de barro (Sonido Amazónico)
+/media/Música/Chicha Libre/Sonido Amazonico/13 mi plato de barro.mp3
+#EXTINF:246,14 Chicha Libre - tres pasajeros (Sonido Amazónico)
+/media/Música/Chicha Libre/Sonido Amazonico/14 tres pasajeros.mp3
+#EXTINF:248,15 Chicha Libre - the hungry song (Sonido Amazónico)
+/media/Música/Chicha Libre/Sonido Amazonico/15 the hungry song.mp3
+#EXTINF:296,16 Chicha Libre - el borrachito (Sonido Amazónico)
+/media/Música/Chicha Libre/Sonido Amazonico/16 el borrachito.mp3
+#EXTINF:228,17 Chicha Libre - pavane (Sonido Amazónico)
+/media/Música/Chicha Libre/Sonido Amazonico/17 pavane.mp3
+#EXTINF:215,18 Chicha Libre - Six Pieds Sous Terre (Sonido Amazónico)
+/media/Música/Chicha Libre/Sonido Amazonico/18 Six Pieds Sous Terre.mp3
+#EXTINF:191,19 Chicha Libre - un shipibo en españa (Sonido Amazónico)
+/media/Música/Chicha Libre/Sonido Amazonico/19 un shipibo en españa.mp3
+#EXTINF:300,20 Chicha Libre - indian summer (Sonido Amazónico)
+/media/Música/Chicha Libre/Sonido Amazonico/20 indian summer.mp3
+#EXTINF:161,21 Chicha Libre - la cumbia del zapatero (Sonido Amazónico)
+/media/Música/Chicha Libre/Sonido Amazonico/21 la cumbia del zapatero.mp3

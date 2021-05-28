@@ -1,4 +1,0 @@
-# Logitech settings
-# Goes in /etc/udev/rules.d/
-
-SUBSYSTEM=="video4linux", KERNEL=="video[0-9]*", ATTRS{product}=="HD Pro Webcam C920", ATTRS{serial}=="A85A88DF", RUN="$HOME/config/fixcam.sh"

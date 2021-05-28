@@ -1,11 +1,5 @@
-
-# ~/.moc/ 
-# commands which invoke other applications, MOC will refuse to start if it
-# is not owned by either root or the current user, or if it is writable by
-# anyone other than it's owner.
-
+# Goes in ~/config/.moc/
 #
-# Comments begin with '#'.
 # You can use quotes and escape ('\') in parameters.
 #
 # You can have variable values substituted by enclosing the variable name
@@ -24,11 +18,8 @@
 #
 # So, for example:
 #
-      MusicDir = /media/Música
+#     MusicDir = /music/${USER:-public}
 #     Fastdir1 = ${MusicDir}/mp3/rock
-#     Fastdir2 = ${MusicDir}/mp3/electronic
-#     Fastdir3 = ${MusicDir}/mp3/rap
-#     Fastdir4 = ${MusicDir}/mp3/etc
 #
 # Variable names are limited to those accepted by the BASH shell; that
 # is, those comprising the upper- and lowercase ASCII characters, digits
@@ -55,36 +46,30 @@
 # picked up by substitutions), however list-valued options are overridden
 # afterwards (which gives the choice of whether the configured values are
 # replaced or added to).
-#
-
 
 # Show file titles (title, author, album) instead of file names.
-ReadTags		= yes
+ReadTags		    = yes
 
-# Directory in which you store music files. If you specify it you will be able
-# to quickly go to this directory with the '-m' parameter or the 'm' command.
-# This can also point to a playlist.
-#MusicDir		= "/home/joe/music"
+# Directory in which you store music files.
+MusicDir		    = "/media/Música/"
 
 # How to sort? FileName is the only option for now.
-Sort			= FileName
+Sort			    = FileName
 
-# Show errors in the streams, for example CRC errors or broken frames in mp3
-# files.
+# Show errors in the streams, for example CRC errors or broken frames in mp3 files.
 ShowStreamErrors	= no
 
-# Ignore CRC errors in MP3 files. Most players do that, so the default value is
-# set to yes.
+# Ignore CRC errors in MP3 files. Most players do that, so the default value is set to yes.
 Mp3IgnoreCRCErrors	= yes
 
 # Turn on repeat.
-Repeat			= no
+Repeat			    = no
 
 # Turn on shuffle.
-Shuffle			= no
+Shuffle			    = no
 
 # Turn on AutoNext.
-AutoNext		= yes
+AutoNext		    = yes
 
 # Default FormatString:
 # %n - Track number
@@ -100,7 +85,7 @@ FormatString		= "%(n:%n :)%(a:%a - :)%(t:%t:)%(A: \(%A\):)"
 OutputBuffer		= 2048
 
 # Input buffer size in kilobytes. Minimum value is 32KB. */
-InputBuffer		= 512
+InputBuffer		    = 512
 
 # How much to fill the input buffer before playing (in kilobytes)?
 # This can't be more than InputBuffer value.
@@ -116,11 +101,11 @@ Prebuffering		= 64
 # debugging).
 # You can enter more than one driver as a colon-separated list.  The first
 # working driver will be used.
-SoundDriver		= JACK:ALSA:OSS
+SoundDriver		= JACK
 
 # Jack output settings.
 JackOutLeft		= "alsa_pcm:playback_1"
-JackOutRight		= "alsa_pcm:playback_2"
+JackOutRight	= "alsa_pcm:playback_2"
 
 # OSS output device.
 OSSDevice		= /dev/dsp
@@ -172,32 +157,32 @@ ShowHiddenFiles		= no
 
 # Start in the music directory if no arguments are given. If set to no, start
 # in the current directory.
-StartInMusicDir		= yes
+StartInMusicDir		= no
 
 # Hide file name extensions.
 HideFileExtension	= no
 
 # Show file format in menu.
-ShowFormat		= yes
+ShowFormat		    = yes
 
 # Show file time in menu. Possible options: yes, no, IfAvailable - show the
 # time only when it was read before (often works faster).
-ShowTime		= IfAvailable
+ShowTime		    = IfAvailable
 
 # Show time played as a percentage in the time progress bar.
 #ShowTimePercent	= no
 
 # Values of the TERM environment variable which are deemed to be xterms.
-XTerms = xterm
-XTerms += xterm-colour:xterm-color
-XTerms += xterm-256colour:xterm-256color
-XTerms += rxvt:rxvt-unicode
-XTerms += rxvt-unicode-256colour:rxvt-unicode-256color
-XTerms += eterm
+XTerms              = xterm
+XTerms              += xterm-colour:xterm-color
+XTerms              += xterm-256colour:xterm-256color
+XTerms              += rxvt:rxvt-unicode
+XTerms              += rxvt-unicode-256colour:rxvt-unicode-256color
+XTerms              += eterm
 
 # Theme file. This can be absolute path or relative to
 # /usr/share/moc/themes/ (depends on installation prefix) or ~/.moc/themes/
-Theme			= transparent-background
+Theme			    = transparent-background
 
 # The theme used when running on an xterm.
 # XTermTheme		= transparent-background
@@ -209,10 +194,10 @@ Theme			= transparent-background
 
 # MOC directory - where pid file, socket, and state files are stored.
 # You can use ~ at the beginning.
-# MOCDir		= ~/.moc
+# MOCDir      		= ~/.moc
 
 # Use mmap() to read files. mmap() is much slower on NFS.
-UseMmap			= no
+UseMmap			    = no
 
 # Use MIME to identify audio files.  This can make for slower loading
 # of playlists but is more accurate than using "extensions".
@@ -250,11 +235,11 @@ SyncPlaylist		= yes
 
 # Choose a keymap file (relative to ~/.moc/ or absolute path).
 # Example keymap with description is included (keymap.example).
-Keymap			= keymap
+Keymap  			= keymap
 
 # Use ASCII characters instead of graphic for drawing lines. This helps on
 # some terminals.
-ASCIILines		= no
+ASCIILines  		= no
 
 # FastDirs, these allow you to jump directly to a directory, the key bindings
 # are in the keymap file.
