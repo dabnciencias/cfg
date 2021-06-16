@@ -140,7 +140,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_i     ), spawn "discord")
 
     -- screenshot a certain area and save to clipboard
-    , ((modm,               xK_Print ), spawn "sleep 0.2; scrot -s -f ~/Pictures/Screenshot_%Y%m%d_%T.png -e 'xclip -selection c -t image/png < $f'")
+    , ((modm,               xK_Print ), spawn "sleep 0.2; scrot -s -q 100 -e 'mkdir ~/Pictures' -f ~/Pictures/Screenshot_%Y%m%d_%T.png -e 'xclip -selection c -t image/png < $f'")
     
     ]
 
