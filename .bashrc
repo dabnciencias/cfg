@@ -11,6 +11,7 @@ alias fim="devour fim"
 alias mountall="sudo mount -a"
 alias poweroff="doas poweroff"
 alias reboot="doas reboot"
+alias unblock="doas rfkill unblock wlan"
 alias zathura="devour zathura"
 
 # Mount device with umask=000
