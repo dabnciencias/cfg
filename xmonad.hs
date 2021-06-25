@@ -116,10 +116,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_f    ), spawn "st -e vifm")
 
     -- launch firefox
-    , ((modm,               xK_w     ), spawn "firefox")
+    , ((modm,               xK_w     ), spawn "librewolf")
 
     -- launch firefox private window
-    , ((modm .|. shiftMask, xK_w     ), spawn "firefox --private-window")
+    , ((modm .|. shiftMask, xK_w     ), spawn "librewolf --private-window")
     
     -- launch qt-jack
     , ((modm,               xK_a     ), spawn "qjackctl")
@@ -140,7 +140,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_i     ), spawn "discord")
 
     -- screenshot a certain area and save to clipboard
-    , ((modm,               xK_Print ), spawn "sleep 0.2; scrot -s -q 100 -e 'mkdir ~/Pictures' -f ~/Pictures/Screenshot_%Y%m%d_%T.png -e 'xclip -selection c -t image/png < $f'")
+    , ((modm,               xK_Print ), spawn "sleep 0.2; scrot -s -f ~/Pictures/Screenshot_%Y%m%d_%T.png -e 'xclip -selection c -t image/png < $f'")
     
     ]
 
@@ -191,7 +191,7 @@ myManageHook = composeAll
   , className =? "mpv" --> doFloat
   , className =? "QjackCtl" --> doRectFloat (W.RationalRect (1 % 1) (1 % 1) (4 % 10) (1 % 7))
   , className =? "firefox" <&&> title =? "Picture-in-Picture" --> doFloat
-  --, className =? "librewolf" <&&> title =? "Picture-in-Picture" --> doFloat
+  , className =? "LibreWolf" <&&> title =? "Picture-in-Picture" --> doFloat
   ]
 
 -------------------------------------------------------------
