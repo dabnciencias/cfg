@@ -1,0 +1,15 @@
+# Goes in ~/.asoundrc
+# This is for using the Steinberg UR22 as the default ALSA device
+# This makes moc work with ALSA
+
+pcm.!default {
+        type plug
+        slave {
+            pcm "hw:2,0"
+        }
+}
+
+ctl.!default {
+        type hw           
+        card 2
+}
