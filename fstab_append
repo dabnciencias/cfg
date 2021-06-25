@@ -3,10 +3,10 @@
 UUID=8A7ADFE97ADFCFD5				/media		ntfs-3g		defaults,nofail	0 2
 
 # Kobo Clara HD
-UUID=5BDA-63EB					/mnt/kobo	vfat		rw,sync,dev,exec,suid,auto,nouser,nofail,umask=000	0 2
+UUID=5BDA-63EB					/mnt/kobo	vfat		defaults,nofail,umask=000	0 2
 
 # SanDisk Cruzer Blade 8GB
-UUID=2391-2310					/mnt/usb	vfat		rw,sync,dev,exec,suid,auto,nouser,nofail,umask=000	0 2
+UUID=2391-2310					/mnt/usb	vfat		defaults,nofail,umask=000	0 2
 
-# Add this to /etc/fstab by running 'doas cat fstab_append >> /etc/fstab'
+# Add this to /etc/fstab by running 'cat fstab_append >> /etc/fstab'
 # Check if it works with 'sudo mount -a' before rebooting
