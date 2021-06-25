@@ -1,3 +1,5 @@
-# Goes in ~/.config/zathura/
+# Goes in ~/.config/zathura/zathurarc
+# This makes zathura open up the current document in Okular.
+# It is useful for editing documents.
 
 map <C-a> feedkeys ":exec okular %<Return>"

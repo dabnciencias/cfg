@@ -1,16 +1,17 @@
-# Goes in ~/
+# Goes in ~/.xprofile
 
-# Keyboard Layout
+# This sets my prefferred keyboard layout
 setxkbmap us altgr-intl
 
-# Wallpaper
+# This restores the last wallpaper set with nitrogen
 nitrogen --restore &
 
-# Compositor
+# This uses picom as a compositor
 picom -f &
 
-# Keyboard Lighting
+# This restores the last keyboard lighting profile set with ckb-next
+# (Be sure to install the 'ckb-next' package)
 ckb-next -b &
 
-# Activate numlock
+# Activate numlock (be sure to install the 'numlockx' package)
 numlockx on &

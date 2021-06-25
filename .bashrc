@@ -1,4 +1,4 @@
-# Goes in ~/
+# Goes in ~/.bashrc
 
 export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
 
@@ -7,20 +7,17 @@ export PATH=$PATH:~/android-sdk-linux/platform-tools
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.cabal/bin
 
-if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then 
-	exec startx
-fi
-
-alias activate="source venv/bin/activate"
-alias ayayay="yay"
-alias fim="devour fim"
-alias zathura="devour zathura"
+alias activate  =   "source venv/bin/activate"
+alias ayayay    =   "yay -Syyu"
+alias fim       =   "devour fim"
+alias mountall  =   "sudo mount -a"
+alias zathura   =   "devour zathura"
 
 # Mount device with umask=000
-mymount() { doas mount $1 $2 -o umask=000 ; }
+mymount()  { doas mount $1 $2 -o umask=000 ; }
 
 # Change Logitech G300s mouse color
-colour() { doas ratslap --modify F3 --colour $1 ; }
+colour()   { doas ratslap --modify F3 --colour $1 ; }
 
 # Record alsa audio with ffmpeg (with number of channels as an argument)
 audiorec() { ffmpeg -f alsa -channels $1 -i default $HOME/Music/`date +%Y%m%d_%H%M%S`.wav ; }

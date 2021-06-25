@@ -1,4 +1,4 @@
--- Goes in ~/.xmonad/
+-- Goes in ~/.xmonad/xmonad.hs
 
 import Data.Ratio
 import XMonad

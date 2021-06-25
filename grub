@@ -1,6 +1,6 @@
 # GRUB boot loader configuration
-# Copy to /etc/defalt/ and run
-# doas update-grub
+# Copy to /etc/defalt/grub and run
+# 'doas update-grub'
 
 GRUB_DEFAULT=saved
 GRUB_SAVEDEFAULT=true

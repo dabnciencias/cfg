@@ -1,4 +1,4 @@
-# Goes in ~/.vim/UltiSnips
+# Goes in ~/.vim/UltiSnips/tex.snippets
 
 snippet template "Basic template" b
 \documentclass[a4paper]{article}
@@ -140,6 +140,18 @@ snippet item "Itemize" b
 \begin{itemize}
 	\item $0
 \end{itemize}
+endsnippet
+
+snippet algn "Align without numbering each line" b
+\begin{align*}
+	$1 &$2 \\\\$0
+\end{align*}
+endsnippet
+
+snippet exer "Begin exercise" b
+\begin{exercise}\label{exercise-$1}
+	$0
+\end{exercise}
 endsnippet
 
 snippet ida "(=>)" 
@@ -478,7 +490,7 @@ snippet ov "overline"
 endsnippet
 
 snippet fn "footnote" i
-\footnote{$1.}$0
+\footnote{$1}$0
 endsnippet
 
 snippet lab "label"

@@ -1,2 +1,4 @@
 # Goes in /etc/udev/rules.d/10-trackpoint.rules
+# Reload rules with 'sudo udevadm control --reload-rules'
+
 ACTION=="add", SUBSYSTEM=="input", ATTR{name}=="TPPS/2 IBM TrackPoint", ATTR{device/sensitivity}="240"

@@ -1,3 +1,4 @@
+" Goes in ~/.config/vifm/vifmrc
 " vim: filetype=vifm :
 " Sample configuration file for vifm (last updated: 9 September, 2020)
 " You can edit this file by hand.

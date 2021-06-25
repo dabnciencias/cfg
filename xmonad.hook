@@ -1,11 +1,12 @@
 # Goes in /etc/pacman.d/hooks/
+# This recompiles xmonad after any package update related to it as to
+# avoid the "XMonad is recompiling and replacing itself..." error.
+
 [Trigger]
 Operation = Upgrade
 Type = Package
 Target = xmonad
 
-# Recompiles xmonad after any package update related to it as to
-# the "XMonad is recompiling and replacing itself..." error.
 [Action]
 Description = Recompiling xmonad...
 When = PostTransaction

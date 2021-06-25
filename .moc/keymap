@@ -1,4 +1,4 @@
-# Goes in ~/.moc/ 
+# Goes in ~/.moc/keymap
 # Also, ~/.moc/config must have the option keymap = ~/.moc/keymap
 
 # Vifm-like keymap file
