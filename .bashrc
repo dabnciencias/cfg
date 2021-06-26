@@ -1,10 +1,5 @@
 export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
 
-export PATH=$PATH:~/android-sdk-linux/tools
-export PATH=$PATH:~/android-sdk-linux/platform-tools
-export PATH=$PATH:~/.local/bin
-export PATH=$PATH:~/.cabal/bin
-
 alias activate="source venv/bin/activate"
 alias ayayay="yay"
 alias fim="devour fim"
@@ -31,7 +26,7 @@ videorec() {
     elif [ $1 = "--screen --no-audio" ]; then
         ` ffmpeg -f x11grab -video_size 1600x900 -framerate 30 -thread_queue_size 1024 -i $DISPLAY -c:v libx264 -preset superfast $HOME/Videos/$(date +%Y%m%d_%H%M%S).mp4`
     elif [ $1 = "--webcam" ]; then
-        `ffmpeg -f v4l2 -framerate 30 -video_size 1920x1080 -thread_queue_size 1024 -c:v mjpeg -i /dev/video0 -f alsa -thread_queue_size 1024 -channels 1 -i default -preset superfast -c:a aac -channels 2 $HOME/Videos/$(date +%Y%m%d_%H%M%S).mov`
+        `ffmpeg -f v4l2 -framerate 30 -video_size 1920x1080 -thread_queue_size 1024 -c:v mjpeg -i /dev/video0 -f alsa -thread_queue_size 1024 -channels 2 -i default -preset superfast -c:a aac -channels 2 $HOME/Videos/$(date +%Y%m%d_%H%M%S).mov`
     elif [ $1 = "--webcam --no-audio" ]; then
         `ffmpeg -f v4l2 -framerate 30 -video_size 1920x1080 -thread_queue_size 1024 -c:v mjpeg -i /dev/video0 -c:v copy -preset superfast $HOME/Videos/$(date +%Y%m%d_%H%M%S).mov`
     else 
