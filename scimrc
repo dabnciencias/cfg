@@ -1,0 +1,19 @@
+# Goes in ~/.config/sc-im/scimrc
+
+# Long strings/values overlap the next cells instead of turning into asterisks
+set overlap
+
+# Custom colors
+define_color "AZUL" 0 135 255
+define_color "ROJO" 255 0 0
+define_color "VERDE" 79 255 0
+define_color "NARANJA" 255 119 0
+
+
+# Color scheme
+color "type=HEADINGS fg=ROJO bg=BLACK bold=1
+color "type=HEADINGS_ODD fg=ROJO bg=BLACK bold=1
+color "type=STRG fg=VERDE bg=BLACK bold=1
+color "type=NUMB fg=NARANJA bg=BLACK bold=1
+color "type=CELL_SELECTION fg=AZUL bg=BLACK bold=1
+color "type=CELL_SELECTION_SC fg=AZUL bg=BLACK bold=1
