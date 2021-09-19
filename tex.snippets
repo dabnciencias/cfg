@@ -1,5 +1,15 @@
 # Goes in ~/.vim/UltiSnips/tex.snippets
 
+# Table of contents:
+#     Environments
+#     Document Commands
+#     Math Mode
+#     Linear Algebra
+#     Modern Algebra
+#     Category Theory
+
+########## Environments ##########
+
 snippet template "Basic template" b
 \documentclass[a4paper]{article}
 
@@ -148,330 +158,38 @@ snippet algn "Align without numbering each line" b
 \end{align*}
 endsnippet
 
+snippet cd "Commutative diagram" b
+\begin{center}
+    \begin{tikzcd}
+	    $1
+	\end{tikzcd}
+\end{center}
+$0
+endsnippet
+
 snippet exer "Begin exercise" b
 \begin{exercise}\label{exercise-$1}
-	$0
+
+	$2
 \end{exercise}
+$3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$0
 endsnippet
 
-snippet ida "(=>)" 
-$(\Rightarrow)$$0
-endsnippet
-
-snippet vuelta "(<=)" 
-$(\Leftarrow)$$0
-endsnippet
-
-snippet mk "Math" wA
-$${1}$`!p
-if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-    snip.rv = ' '
-else:
-    snip.rv = ''
-`$2
-endsnippet
-
-snippet dm "Math" wA
-\[
-$1
-\] $0
-endsnippet
-
-snippet "inv" "inverse notation" rw
-^{-1}
-endsnippet
-
-snippet "op" "opposite notation" rw
-^{op}
-endsnippet
-
-priority 10
-snippet "bar" "bar" rw
-\overline{$1}$0
-endsnippet
-
-priority 100
-snippet "([a-zA-Z])bar" "bar postfix" ri
-\overline{`!p snip.rv=match.group(1)`}
-endsnippet
-
-priority 10
-snippet "hat" "hat" rwA
-\hat{$1}$0
-endsnippet
-
-priority 100
-snippet "([a-zA-Z])hat" "hat postfix" riA
-\hat{`!p snip.rv=match.group(1)`}
-endsnippet
-
-priority 10 
-snippet "avec" "arrow vector" rwA
-\vec{$1}$0
-endsnippet
-
-priority 100
-snippet "([a-zA-Z])avec" "arrow vector postfix" riA
-\vec{`!p snip.rv=match.group(1)`}
-endsnippet 
-
-snippet "txt" "Text in math mode" rw
-\text{$1}
-endsnippet
-
-snippet OO "integer" iA
-\bullet
-endsnippet
-
-snippet "Ker" "Kernel" rw
-\text{Ker}($1)$0
-endsnippet
-
-snippet "Im" "Image" rw
-\text{Im}($1)$0
-endsnippet
-
-snippet "St" "Stabilizer" rw
-\text{St}_$1($2)$0
-endsnippet
-
-snippet "Inn" "Internal permutations" rw
-\text{Inn}_$1($2)$0
-endsnippet
-
-priority 10
-snippet "bvec" "bold vector" rwA
-\mathbf{$1}$0
-endsnippet
-
-priority 100
-snippet "([a-zA-Z])bvec" "bold vector postfix" riA
-\mathbf{`!p snip.rv=match.group(1)`}
-endsnippet
-
-snippet "cvec" "column vector" rwA
-\begin{bmatrix} $1 \end{bmatrix}^T $0
-endsnippet
-
-snippet "dvec" "draw a vector" rwA
-\draw[$1] ($2) -- ($3);
-endsnippet
-
-priority 10
-snippet "ket" "ket vector" rw
-\ket{$1}$0
-endsnippet
-
-priority 100
-snippet "([a-zA-Z])ket" "ket vector postfix" rw
-\ket{`!p snip.rv=match.group(1)`}
-endsnippet
-
-snippet "bra" "bra dual vector/functional" rw
-\bra{$1}$0
-endsnippet
-
-priority 100
-snippet "([a-zA-Z])bra" "ket vector postfix" rw
-\bra{`!p snip.rv=match.group(1)`}
-endsnippet
-
-priority 1000
-snippet "braket" "braket notation for scalar product" rwA
-\braket{$1|$2}$0
-endsnippet
-
-priority 10
-snippet "sqrt" "sqrt" rwA
-\sqrt{$1}$0
-endsnippet
-
-priority 100
-snippet "([a-zA-Z])sqrt" "sqrt postfix" riA
-\sqrt{`!p snip.rv=match.group(1)`}
-endsnippet 
-
-snippet "frac" "frac" rwA
-\frac{$1}{$2}$0
-endsnippet
-
-snippet ddx "derivative" A
-\frac{d$1}{d$2}$0
-endsnippet
-
-snippet idx "integral" A
-\int_{$1}^{$2} $3 d$4 $0
-endsnippet
-
-snippet mbf "math bold" A
-\mathbf{$1}$0
-endsnippet
-
-snippet mca "mathcal" iA
-\mathcal{$1}$0
-endsnippet
-
-snippet msc "mathscr" iA
-\mathscr{$1}$0
-endsnippet
-
-snippet deg "degree symbol" w
-^\circ
-endsnippet
+snippet proof "Begin proof" b
+\begin{proof}$1
 
-snippet proj "scalar projection" w
-P_{$1}($2)$0
-endsnippet
-
-snippet scal "scalar product" w
-\langle $1 , $2 \rangle$0
-endsnippet
-
-snippet span "span" wi
-\langle $1 \rangle $0
-endsnippet
-
-snippet imp "implies" i
-\implies $0
-endsnippet
-
-snippet LL "L(V,W)" iA
-\mathcal{L}($1,$2)$0
-endsnippet
-
-snippet dim "dimension"
-\text{dim}($1)$0
-endsnippet
-
-snippet rango "rango"
-\text{rango}($1)$0
-endsnippet
-
-snippet nulidad "nulidad"
-\text{nulidad}($1)$0
-endsnippet
-
-snippet iff "iff" iA
-\iff $0
-endsnippet
-
-snippet eqv "equiv" iA
-\equivalent $0
-endsnippet
-
-snippet simeq "similar or equal to" iA
-\simeq $0
-endsnippet
-
-snippet neq "not equal to" iA
-\neq $0
-endsnippet
-
-snippet subeq "subseteq" iA
-\subseteq $0
-endsnippet
-
-snippet leq "leq" iA
-\le $0
-endsnippet
-
-snippet geq "geq" iA
-\ge $0
-endsnippet
-
-snippet pmat "pmat" iA
-\begin{pmatrix} $1 \end{pmatrix}$0
-endsnippet
-
-snippet bmat "bmat" iA
-\begin{bmatrix} $1 \end{bmatrix}$0
-endsnippet
-
-priority 10
-snippet to "to" i
-\to $0
-endsnippet
-
-priority 100
-snippet mto "maps to" i
-\mapsto $0
-endsnippet
-
-snippet _ "subscript" i
-_{$1}$0
-endsnippet
-
-snippet EE "exists" iA
-\exists \ $0
-endsnippet
-
-snippet AA "forall" iA
-\forall \ $0
-endsnippet
-
-snippet node "node"
-node[$1] $2 {$3}$0
-endsnippet
-
-snippet XX "times" iA
-\times $0
-endsnippet
-	
-snippet .. "cdot" i
-\cdot $0
-endsnippet
-
-snippet norm "norm" i
-\|\|$1\|\|$0
-endsnippet
-
-snippet set "set" i
-\\{$1\\}$0
-endsnippet
-
-snippet notin "not in" iA
-\notin $0
-endsnippet
-
-snippet noin "no indent" iA
-\noindent $0
-endsnippet
-
-snippet UU "cup" iA
-\cup$0
-endsnippet
-
-snippet tleft "left triangle" iA
-\trianglelefteq $0
-endsnippet
+	$2
+\end{proof}
 
-snippet tright "right triangle" iA
-\trianglerighteq $0
 endsnippet
 
-snippet II "cap" iA
-\cap$0
+snippet cases "Begin cases"
+\begin{cases} $1 &$2 \\\\ $3 &$4 \end{cases}$0
 endsnippet
 
-snippet CC "complex" iA
-\mathbb{C}
-endsnippet
-
-snippet RR "real" iA
-\mathbb{R}
-endsnippet
-
-snippet QQ "integer" iA
-\mathbb{Q}
-endsnippet
-
-snippet ZZ "integer" iA
-\mathbb{Z}
-endsnippet
-
-snippet NN "natural" iA
-\mathbb{N}
-endsnippet
+########## Document Commands ##########
 
 snippet tbf "bold text" iA
 \textbf{$1}$0
@@ -549,6 +267,89 @@ snippet sssec "subsubsection"
 \subsubsection{$1} \label{Sssec: $1}$0
 endsnippet
 
+snippet noin "no indent" iA
+\noindent $0
+endsnippet
+
+snippet np "newpage" b
+\newpage
+$0
+endsnippet
+
+########## Math Mode ##########
+
+snippet ida "(=>)" 
+$(\Rightarrow)$$0
+endsnippet
+
+snippet vuelta "(<=)" 
+$(\Leftarrow)$$0
+endsnippet
+
+snippet lr "<->" 
+\leftrightarrow
+endsnippet
+
+snippet mk "Math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+snippet dm "Math" wA
+\[
+$1
+\] 
+$0
+endsnippet
+
+snippet "inv" "inverse notation" rw
+^{-1}
+endsnippet
+
+snippet "op" "opposite notation" rw
+^{op}
+endsnippet
+
+priority 10
+snippet "bar" "bar" rw
+\overline{$1}$0
+endsnippet
+
+priority 100
+snippet "([a-zA-Z])bar" "bar postfix" ri
+\overline{`!p snip.rv=match.group(1)`}
+endsnippet
+
+priority 10
+snippet "hat" "hat" rw
+\hat{$1}$0
+endsnippet
+
+priority 100
+snippet "([a-zA-Z])hat" "hat postfix" ri
+\hat{`!p snip.rv=match.group(1)`}
+endsnippet
+
+snippet "tld" "tilde" rw
+\tilde{$1}$0
+endsnippet
+
+snippet "txt" "Text in math mode" rw
+\text{$1}
+endsnippet
+
+snippet ** "asterisk" iA
+\ast
+endsnippet
+
+snippet OO "bullet" iA
+\bullet
+endsnippet
+
 snippet vphi "varphi" iA
 \varphi$0
 endsnippet
@@ -557,4 +358,367 @@ snippet veps "vareps" iA
 \varepsilon$0
 endsnippet
 
+snippet II "cap" iA
+\cap$0
+endsnippet
 
+snippet CC "complex" iA
+\mathbb{C}
+endsnippet
+
+snippet RR "real" iA
+\mathbb{R}
+endsnippet
+
+snippet QQ "integer" iA
+\mathbb{Q}
+endsnippet
+
+snippet ZZ "integer" iA
+\mathbb{Z}
+endsnippet
+
+snippet NN "natural" iA
+\mathbb{N}
+endsnippet
+
+snippet set "set" i
+\\{$1\\}$0
+endsnippet
+
+snippet UU "cup" iA
+\cup$0
+endsnippet
+
+priority 10
+snippet to "to" i
+\to $0
+endsnippet
+
+priority 100
+snippet mto "maps to" i
+\mapsto $0
+endsnippet
+
+priority 10
+snippet in "to" i
+\in $0
+endsnippet
+
+priority 100
+snippet notin "not in" iA
+\notin $0
+endsnippet
+
+snippet _ "subscript" i
+_{$1}$0
+endsnippet
+
+snippet EE "exists" iA
+\exists \ $0
+endsnippet
+
+snippet AA "forall" iA
+\forall \ $0
+endsnippet
+
+snippet node "node"
+node[$1] $2 {$3}$0
+endsnippet
+
+snippet XX "times" iA
+\times$0
+endsnippet
+	
+snippet vv "vee" iA
+\vee$0
+endsnippet
+	
+snippet VV "bigvee" iA
+\bigvee$0
+endsnippet
+
+snippet iff "iff" iA
+\iff $0
+endsnippet
+
+snippet eqv "equiv" iA
+\equivalent$0
+endsnippet
+
+priority 10
+snippet sim "similar to" i
+\sim$0
+endsnippet
+
+priority 100
+snippet simeq "similar or equal to" iA
+\simeq$0
+endsnippet
+
+snippet cong "congruent to" iA
+\cong$0
+endsnippet
+
+snippet neq "not equal to" iA
+\neq $0
+endsnippet
+
+snippet subeq "subseteq" iA
+\subseteq $0
+endsnippet
+
+snippet leq "leq" i
+\le $0
+endsnippet
+
+snippet lqs "leqslant" i
+\leqslant $0
+endsnippet
+
+snippet geq "geq" i
+\ge $0
+endsnippet
+
+priority 10
+snippet "sqrt" "sqrt" rwA
+\sqrt{$1}$0
+endsnippet
+
+priority 100
+snippet "([a-zA-Z])sqrt" "sqrt postfix" riA
+\sqrt{`!p snip.rv=match.group(1)`}
+endsnippet 
+
+snippet "frac" "frac" rwA
+\frac{$1}{$2}$0
+endsnippet
+
+snippet ddx "derivative" A
+\frac{d$1}{d$2}$0
+endsnippet
+
+snippet idx "integral" A
+\int_{$1}^{$2} $3 d$4 $0
+endsnippet
+
+snippet mbf "math bold" A
+\mathbf{$1}$0
+endsnippet
+
+snippet mca "mathcal" iA
+\mathcal{$1}$0
+endsnippet
+
+snippet msc "mathscr" iA
+\mathscr{$1}$0
+endsnippet
+
+snippet deg "degree symbol" w
+^\circ
+endsnippet
+
+snippet imp "implies" i
+\implies $0
+endsnippet
+
+########## Linear Algebra ##########
+
+priority 10 
+snippet "avec" "arrow vector" rwA
+\vec{$1}$0
+endsnippet
+
+priority 100
+snippet "([a-zA-Z])avec" "arrow vector postfix" riA
+\vec{`!p snip.rv=match.group(1)`}
+endsnippet 
+
+snippet "Ker" "Kernel" rw
+\text{Ker}($1)$0
+endsnippet
+
+snippet "Im" "Image" rw
+\text{Im}($1)$0
+endsnippet
+
+priority 10
+snippet "bvec" "bold vector" rwA
+\mathbf{$1}$0
+endsnippet
+
+priority 100
+snippet "([a-zA-Z])bvec" "bold vector postfix" riA
+\mathbf{`!p snip.rv=match.group(1)`}
+endsnippet
+
+snippet "cvec" "column vector" rwA
+\begin{bmatrix} $1 \end{bmatrix}^T $0
+endsnippet
+
+snippet "dvec" "draw a vector" rwA
+\draw[$1] ($2) -- ($3);
+endsnippet
+
+priority 10
+snippet "ket" "ket vector" rw
+\ket{$1}$0
+endsnippet
+
+priority 100
+snippet "([a-zA-Z])ket" "ket vector postfix" rw
+\ket{`!p snip.rv=match.group(1)`}
+endsnippet
+
+snippet "bra" "bra dual vector/functional" rw
+\bra{$1}$0
+endsnippet
+
+priority 100
+snippet "([a-zA-Z])bra" "ket vector postfix" rw
+\bra{`!p snip.rv=match.group(1)`}
+endsnippet
+
+priority 1000
+snippet "braket" "braket notation for scalar product" rwA
+\braket{$1|$2}$0
+endsnippet
+snippet proj "scalar projection" w
+P_{$1}($2)$0
+endsnippet
+
+snippet scal "scalar product" w
+\langle $1 , $2 \rangle$0
+endsnippet
+
+snippet span "span" wi
+\langle $1 \rangle $0
+endsnippet
+
+snippet LL "L(V,W)" iA
+\mathcal{L}($1,$2)$0
+endsnippet
+
+snippet dim "dimension"
+\text{dim}($1)$0
+endsnippet
+
+snippet rango "rango"
+\text{rango}($1)$0
+endsnippet
+
+snippet nulidad "nulidad"
+\text{nulidad}($1)$0
+endsnippet
+
+snippet pmat "pmat" iA
+\begin{pmatrix} $1 \end{pmatrix}$0
+endsnippet
+
+snippet bmat "bmat" iA
+\begin{bmatrix} $1 \end{bmatrix}$0
+endsnippet
+
+snippet .. "cdot" i
+\cdot$0
+endsnippet
+
+snippet norm "norm" i
+\|\|$1\|\|$0
+endsnippet
+
+########## Modern Algebra ##########
+
+snippet "St" "Stabilizer" rw
+\text{St}_$1($2)$0
+endsnippet
+
+snippet "Inn" "Internal permutations" rw
+\text{Inn}_$1($2)$0
+endsnippet
+
+snippet tleft "left triangle" i
+\trianglelefteq $0
+endsnippet
+
+snippet tright "right triangle" i
+\trianglerighteq $0
+endsnippet
+
+########## Category Theory ##########
+
+snippet "Obj" "Objects" rw
+\text{Obj}($1)$0
+endsnippet
+
+snippet "Mor" "Morphisms" rw
+\text{Mor}($1)$0
+endsnippet
+
+snippet "Id" "Identity morphisms" rw
+\text{Id}_{$1}$0
+endsnippet
+
+snippet "Fun" "Functors" rw
+[$1,$2]$0
+endsnippet
+
+snippet "Nat" "Natural transformations" rw
+\text{Nat}_{[$1,$2]}($3,$4)$0
+endsnippet
+
+snippet "Hom" "Hom-functor" rw
+\text{Hom}_$1($2,$3)$0
+endsnippet
+
+snippet "Map" "Maps" rw
+\text{Map}($1,$2)$0
+endsnippet
+
+snippet "Mod" "Module Category" rw
+\text{Mod}($1)$0
+endsnippet
+
+snippet "Mon" "Monomorphism Category" rw
+\text{Mon}_$1(-,$2)$0
+endsnippet
+
+snippet "Epi" "Epimorphism Category" rw
+\text{Epi}_$1($2,-)$0
+endsnippet
+
+snippet "Equ" "Equalizer" rw
+\text{Equ}($1,$2)$0
+endsnippet
+
+snippet "hkr" "Right hook" rw
+\hookrightarrow$0
+endsnippet
+
+snippet "hkl" "Left hook" rw
+\hookleftarrow$0
+endsnippet
+
+snippet "thr" "Epimorphism" rw
+\twoheadrightarrow$0
+endsnippet
+
+snippet "thl" "Epimorphism" rw
+\twoheadleftarrow$0
+endsnippet
+
+snippet "xr" "xrightarrow" rw
+\xrightarrow[$1]{$2}$0
+endsnippet
+
+snippet "xl" "xleftarrow" rw
+\xleftarrow[$1]{$2}$0
+endsnippet
+
+snippet "prod" "Product" rw
+\prod_{$1}$0
+endsnippet
+
+snippet "coprod" "Coproduct" rw
+\coprod_{$1}$0
+endsnippet
