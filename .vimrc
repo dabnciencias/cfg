@@ -63,6 +63,10 @@ inoremap jf <Esc>
 inoremap FJ <Esc>
 inoremap JF <Esc>
 
+" Mapping Ctrl+F to inkscape-figures commands
+inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+
 " This makes vim turn paste mode on/off automatically when you paste
 let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"

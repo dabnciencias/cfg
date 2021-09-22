@@ -7,6 +7,8 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops  
 import XMonad.Hooks.ManageHelpers 
 import XMonad.Layout.NoBorders (smartBorders, noBorders)
+import XMonad.Layout.PerScreen
+import XMonad.Layout.ThreeColumns
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -22,7 +24,7 @@ myFocusFollowsMouse = True
 myBorderWidth   = 3
 
 -- No borders in fullscreen
-myLayoutHook    = smartBorders $ Mirror (Tall 1 (3/100) (1/2)) ||| Tall 1 (3/100) (1/2) ||| noBorders Full
+myLayoutHook    = smartBorders $ ifWider 1920 (ThreeColMid 1 (1/20) (1/2)) (Mirror (Tall 1 (3/100) (1/3))) ||| Tall 1 (3/100) (1/2) ||| noBorders Full
 
 -- Use "Windows key" as modifier key
 myModMask       = mod4Mask
@@ -121,14 +123,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch firefox private window
     , ((modm .|. shiftMask, xK_w     ), spawn "librewolf --private-window")
     
-    -- launch qt-jack
-    , ((modm,               xK_a     ), spawn "qjackctl")
-
-    -- launch thunderbird
-    , ((modm,               xK_e     ), spawn "thunderbird")
-
     -- launch stremio
-    , ((modm .|. shiftMask, xK_e     ), spawn "stremio")
+    , ((modm,               xK_e     ), spawn "stremio")
 
     -- launch telegram
     , ((modm,               xK_i     ), spawn "telegram-desktop")
@@ -174,7 +170,6 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 myManageHook = composeAll
   [ isFullscreen --> doFullFloat
   , className =? "TelegramDesktop" --> doShift "0"
-  , className =? "Thunderbird" --> doShift "0"
   , className =? "discord" --> doShift "0"
   , className =? "Slack" --> doShift "0"
   , className =? "Transmission-gtk" --> doShift "9"
