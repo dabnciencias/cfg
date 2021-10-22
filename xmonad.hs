@@ -24,7 +24,7 @@ myFocusFollowsMouse = True
 myBorderWidth   = 3
 
 -- No borders in fullscreen
-myLayoutHook    = smartBorders $ ifWider 1920 (ThreeColMid 1 (1/20) (1/2)) (Mirror (Tall 1 (3/100) (1/3))) ||| Tall 1 (3/100) (1/2) ||| noBorders Full
+myLayoutHook    = smartBorders $ ifWider 1920 (Tall 1 (3/100) (1/2)) (Mirror (Tall 1 (3/100) (1/3))) ||| ifWider 1920 (ThreeColMid 1 (1/20) (1/2)) (Tall 1 (3/100) (1/2)) ||| noBorders Full
 
 -- Use "Windows key" as modifier key
 myModMask       = mod4Mask
@@ -175,6 +175,7 @@ myManageHook = composeAll
   , className =? "Transmission-gtk" --> doShift "9"
   , className =? "Stremio" --> doShift "9"
   , title =? "Media viewer" --> doFloat 
+  , title =? "mocp" --> doFloat
   , title =? " " --> doFloat
   , className =? "Steam" --> doShift "9"
   , title =? "Stephen's Sausage Roll" --> doFullFloat

@@ -222,10 +222,16 @@ fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
          \ identify %f
 
 " Spreadsheet
-filextype {*.sc},
+filextype {*.sc, *.csv},
          \<spreadsheet/*>
         \ {View using sc-im}
         \ sc-im %f,
+
+" Xournal++ document
+filextype {*.xopp},
+         \<xournal/*>
+        \ {View using xournalpp}
+        \ devour xournalpp %f,
 
 " OpenRaster
 filextype *.ora
