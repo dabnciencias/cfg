@@ -258,8 +258,12 @@ snippet hsp "horizontal space" iA
 \hspace{$1}$0
 endsnippet
 
-snippet vs "vertical space" iA
+snippet vsp "vertical space" iA
 \vspace{$1}
+endsnippet
+
+snippet lvm "leave vertical mode" iA
+\leavevmode
 endsnippet
 
 snippet -- "textemdash" i
@@ -297,15 +301,19 @@ endsnippet
 
 ########## Math Mode ##########
 
-snippet ida "(=>)" 
-$(\Rightarrow)$$0
+snippet Ra "=>" i
+\Rightarrow$0
 endsnippet
 
-snippet vuelta "(<=)" 
-$(\Leftarrow)$$0
+snippet La "<=" i
+\Leftarrow$0
 endsnippet
 
-snippet lr "<->" 
+snippet iff "iff" i
+\iff$0
+endsnippet
+
+snippet lra "<->" 
 \leftrightarrow
 endsnippet
 
@@ -329,8 +337,8 @@ snippet "inv" "inverse notation" rw
 ^{-1}
 endsnippet
 
-snippet "op" "opposite notation" rw
-^{op}
+snippet "op" "opposite" rw
+\text{op}
 endsnippet
 
 priority 10
@@ -410,7 +418,7 @@ snippet set "set" i
 endsnippet
 
 snippet fam "family" i
-\\{$1_$2$3\\}_{$2\in $4}$0
+\\{$1_$2$3\\}_{$2$4}$0
 endsnippet
 
 snippet UU "cup" iA
@@ -418,22 +426,22 @@ snippet UU "cup" iA
 endsnippet
 
 priority 10
-snippet to "to" i
+snippet -> "to" i
 \to $0
 endsnippet
 
 priority 100
-snippet mto "maps to" i
+snippet |-> "maps to" i
 \mapsto $0
 endsnippet
 
 priority 10
-snippet in "to" i
+snippet in "in" i
 \in $0
 endsnippet
 
 priority 100
-snippet notin "not in" iA
+snippet notin "not in" i
 \notin $0
 endsnippet
 
@@ -469,46 +477,42 @@ snippet VV "bigvee" iA
 \bigvee$0
 endsnippet
 
-snippet iff "iff" iA
-\iff $0
-endsnippet
-
-snippet eqv "equiv" iA
+snippet =- "equivalent" i
 \equivalent$0
 endsnippet
 
 priority 10
-snippet sim "similar to" i
+snippet ~ "similar to" i
 \sim$0
 endsnippet
 
 priority 100
-snippet simeq "similar or equal to" iA
+snippet ~- "similar or equal to" i
 \simeq$0
 endsnippet
 
-snippet cong "congruent to" iA
+snippet ~= "congruent" i
 \cong$0
 endsnippet
 
-snippet neq "not equal to" iA
-\neq $0
+snippet /= "not equal to" i
+\neq$0
 endsnippet
 
 snippet subeq "subseteq" iA
-\subseteq $0
+\subseteq$0
 endsnippet
 
-snippet leq "leq" i
-\le $0
+snippet <= "leq" i
+\le$0
 endsnippet
 
-snippet lqs "leqslant" i
-\leqslant $0
+snippet <\ "leqslant" i
+\leqslant$0
 endsnippet
 
-snippet geq "geq" i
-\ge $0
+snippet >= "geq" i
+\ge$0
 endsnippet
 
 priority 10
@@ -549,7 +553,7 @@ snippet deg "degree symbol" w
 ^\circ
 endsnippet
 
-snippet imp "implies" i
+snippet ==> "implies" i
 \implies $0
 endsnippet
 
@@ -564,14 +568,6 @@ priority 100
 snippet "([a-zA-Z])avec" "arrow vector postfix" riA
 \vec{`!p snip.rv=match.group(1)`}
 endsnippet 
-
-snippet "Ker" "Kernel" rw
-\text{Ker}($1)$0
-endsnippet
-
-snippet "Im" "Image" rw
-\text{Im}($1)$0
-endsnippet
 
 priority 10
 snippet "bvec" "bold vector" rwA
@@ -650,6 +646,14 @@ snippet bmat "bmat" iA
 \begin{bmatrix} $1 \end{bmatrix}$0
 endsnippet
 
+snippet smat "small matrix" iA
+\begin{smallmatrix} $1 \end{smallmatrix}$0
+endsnippet
+
+snippet Mat "Matrices" i
+\text{Mat}_{$1\times $1$2}($3)$0
+endsnippet
+
 snippet .. "cdot" i
 \cdot$0
 endsnippet
@@ -698,16 +702,48 @@ snippet "Nat" "Natural transformations" rw
 \text{Nat}_{[$1,$2]}($3,$4)$0
 endsnippet
 
-snippet "Hom" "Hom-functor" rw
+snippet "Hom" "Hom functor" rw
 \text{Hom}_$1($2,$3)$0
+endsnippet
+
+snippet "Ext" "Ext functor" rw
+\text{Ext}_{$1}^{$2}($3,$4)$0
+endsnippet
+
+snippet "End" "Endomorphisms" rw
+\text{End}_$1($2)$0
 endsnippet
 
 snippet "Map" "Maps" rw
 \text{Map}($1,$2)$0
 endsnippet
 
+snippet "Smd" "Direct summands" rw
+\text{Smd}($1)$0
+endsnippet
+
+snippet "Sets" "Sets Category" rw
+\text{Sets}$0
+endsnippet
+
+snippet "Grp" "Groups Category" rw
+\text{Grp}$0
+endsnippet
+
+snippet "Ab" "Abelian groups Category" rw
+\text{Ab}$0
+endsnippet
+
+snippet "Rings" "Rings Category" rw
+\text{Rings}$0
+endsnippet
+
 snippet "Mod" "Module Category" rw
 \text{Mod}($1)$0
+endsnippet
+
+snippet "mod" "Finitely Generated Module Category" rw
+\text{mod}($1)$0
 endsnippet
 
 snippet "Mon" "Monomorphism Category" rw
@@ -716,6 +752,14 @@ endsnippet
 
 snippet "Epi" "Epimorphism Category" rw
 \text{Epi}_$1($2,-)$0
+endsnippet
+
+snippet "barMon" "Monomorphism Equivalence Class Category" rw
+\overline{\text{Mon}}_$1(-,$2)$0
+endsnippet
+
+snippet "barEpi" "Epimorphism Equivalence Class Category" rw
+\oberline{\text{Epi}}_$1($2,-)$0
 endsnippet
 
 snippet "Equ" "Equalizer" rw
@@ -746,7 +790,7 @@ snippet "xl" "xleftarrow" rw
 \xleftarrow[$1]{$2}$0
 endsnippet
 
-snippet "xrr" "xrightrightarrrows" rw
+snippet "xrr" "xrightrightarrows" rw
 \underset{$1}{\overset{$2}{\rightrightarrows}}$0
 endsnippet
 
@@ -762,7 +806,7 @@ snippet "lat" "rightarrowtail" rw
 \leftarrowtail$0
 endsnippet
 
-snippet "ar" "tikzcd arrow" rw
+snippet "arr" "tikzcd arrow" rw
 \arrow[$1]{$2}[$3]{$4}$0
 endsnippet
 
@@ -772,4 +816,34 @@ endsnippet
 
 snippet "cpd" "Coproduct" rw
 \coprod$0
+endsnippet
+
+snippet "Ker" "Kernel" rw
+\text{Ker}($1)$0
+endsnippet
+
+snippet "Coker" "Kernel" rw
+\text{CoKer}($1)$0
+endsnippet
+
+snippet "Im" "Image" rw
+\text{Im}($1)$0
+endsnippet
+
+snippet "Coim" "CoImage" rw
+\text{CoIm}($1)$0
+endsnippet
+
+snippet "%%" "Delimiter" rw
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+$0
+endsnippet
+
+snippet "Proj" "Projective class" rw
+\text{Proj}($1)$0
+endsnippet
+
+snippet "Inj" "Injective class" rw
+\text{Inj}($1)$0
 endsnippet

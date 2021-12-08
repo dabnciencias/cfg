@@ -8,6 +8,7 @@ alias mountall="doas mount -a"
 alias poweroff="doas poweroff"
 alias reboot="doas reboot"
 alias unblock="doas rfkill unblock wlan"
+alias xournalpp="devour xournalpp"
 alias zathura="devour zathura"
 
 # Mount device with umask=000
@@ -34,3 +35,5 @@ videorec() {
         echo "Valid options are '--screen', '--screen-no-audio', '--webcam' and '--webcam-no-audio'."
     fi
 }
+
+tstream() { streamlink --player mpv https://twitch.tv/$1 best ; }

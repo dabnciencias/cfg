@@ -3,6 +3,7 @@
 import Data.Ratio
 import XMonad
 import XMonad.Actions.CycleWS     
+import XMonad.Actions.RotSlaves     
 import XMonad.Hooks.DynamicLog    
 import XMonad.Hooks.EwmhDesktops  
 import XMonad.Hooks.ManageHelpers 
@@ -108,8 +109,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- recompile and restart xmonad
     , ((modm .|. shiftMask, xK_r     ), spawn "xmonad --recompile; xmonad --restart")
 
-    -- open zathura 
-    , ((modm,               xK_r     ), spawn "zathura")
+    -- rotate slave windows
+    , ((modm,               xK_r     ), rotSlavesDown)
 
     -- open xournal 
     , ((modm,               xK_x     ), spawn "xournalpp")
@@ -183,6 +184,9 @@ myManageHook = composeAll
   , title =? "Pony Island" --> doFullFloat
   , title =? "Manifold Garden" --> doFloat
   , title =? "Pummel Party" --> doFloat
+  , title =? "Hollow Knight" --> doFloat
+  , title =? "UNDERTALE" --> doFloat
+  , title =? "Celeste" --> doFloat
   , className =? "zoom" <&&> title=? "Chat" --> doFloat
   , className =? "mpv" --> doFloat
   , className =? "QjackCtl" --> doRectFloat (W.RationalRect (1 % 1) (1 % 1) (4 % 10) (1 % 7))
