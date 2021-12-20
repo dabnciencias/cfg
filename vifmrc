@@ -222,7 +222,7 @@ fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
          \ identify %f
 
 " Spreadsheet
-filextype {*.sc, *.csv},
+filextype {*.sc},
          \<spreadsheet/*>
         \ {View using sc-im}
         \ sc-im %f,
