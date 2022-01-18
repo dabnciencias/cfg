@@ -4,6 +4,7 @@ import Data.Ratio
 import XMonad
 import XMonad.Actions.CycleWS     
 import XMonad.Actions.RotSlaves     
+import XMonad.Actions.PhysicalScreens
 import XMonad.Hooks.DynamicLog    
 import XMonad.Hooks.EwmhDesktops  
 import XMonad.Hooks.ManageHelpers 
@@ -11,8 +12,8 @@ import XMonad.Layout.NoBorders (smartBorders, noBorders)
 import XMonad.Layout.PerScreen
 import XMonad.Layout.ThreeColumns
 
-import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import qualified XMonad.StackSet as W
 
 -- Virtual terminal program
 myTerminal      = "st"
@@ -25,7 +26,7 @@ myFocusFollowsMouse = True
 myBorderWidth   = 3
 
 -- No borders in fullscreen
-myLayoutHook    = smartBorders $ ifWider 1920 (Tall 1 (3/100) (1/2)) (Mirror (Tall 1 (3/100) (1/3))) ||| ifWider 1920 (ThreeColMid 1 (1/20) (1/2)) (Tall 1 (3/100) (1/2)) ||| noBorders Full
+myLayoutHook    = smartBorders $ ifWider 1920 (Tall 1 (3/100) (1/2)) (Mirror (Tall 1 (3/100) (1/2))) ||| ifWider 1920 (ThreeColMid 1 (1/20) (1/2)) (Tall 1 (3/100) (1/2)) ||| noBorders Full
 
 -- Use "Windows key" as modifier key
 myModMask       = mod4Mask
@@ -118,10 +119,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch vifm
     , ((modm,               xK_f    ), spawn "st -e vifm")
 
-    -- launch firefox
+    -- launch librewolf
     , ((modm,               xK_w     ), spawn "librewolf")
 
-    -- launch firefox private window
+    -- launch librewolf private window
     , ((modm .|. shiftMask, xK_w     ), spawn "librewolf --private-window")
     
     -- launch stremio
@@ -147,6 +148,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0])
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+
+    ++
+
+    -- Toggle view between two screens and shift windows to another screen
+    [ ((modm, xK_d), onNextNeighbour def W.view)
+    , ((modm .|. shiftMask, xK_d), onNextNeighbour def W.shift) ]
 
 -------------------------------------------------------------
 --- Mouse bindings: default actions bound to mouse events ---

@@ -88,6 +88,19 @@ snippet beg "begin{} / end{}" bA
 \end{$1}
 endsnippet
 
+snippet cen "center environment" bA
+\begin{center}
+    $1
+\end{center}
+$0
+endsnippet
+
+snippet equ "equation environment" bA
+\begin{equation}$1
+    $0
+\end{center}
+endsnippet
+
 snippet table "Table environment" b
 \begin{table}[${1:htpb}]
 	\centering
@@ -178,12 +191,9 @@ snippet algn "Align without numbering each line" b
 endsnippet
 
 snippet cd "Commutative diagram" b
-\begin{center}
-    \begin{tikzcd}
-	    $1
-	\end{tikzcd}
-\end{center}
-$0
+\begin{tikzcd}
+    $0
+\end{tikzcd}
 endsnippet
 
 snippet exer "Begin exercise" b
@@ -214,15 +224,15 @@ snippet tbf "bold text" iA
 \textbf{$1}$0
 endsnippet
 
-snippet em "emphasis/italics"
+snippet em "emphasis/italics" iw
 \emph{$1}$0
 endsnippet
 
-snippet un "underline"
+snippet un "underline" iw
 \underline{$1}$0
 endsnippet
 
-snippet ov "overline"
+snippet ov "overline" iw
 \overline{$1}$0
 endsnippet
 
@@ -230,7 +240,7 @@ snippet fn "footnote" i
 \footnote{$1}$0
 endsnippet
 
-snippet lab "label"
+snippet lbl "label" iw
 \label{$1}$0
 endsnippet
 
@@ -297,6 +307,10 @@ endsnippet
 snippet np "newpage" b
 \newpage
 $0
+endsnippet
+
+snippet tss "Superscript in text mode" iw
+\textsuperscript{$1}$0
 endsnippet
 
 ########## Math Mode ##########
@@ -537,15 +551,23 @@ snippet idx "integral" A
 \int_{$1}^{$2} $3 d$4 $0
 endsnippet
 
-snippet mbf "math bold" A
+snippet mbb "mathbb" iw
+\mathbb{$1}$0
+endsnippet
+
+snippet mbf "math bold" iw
 \mathbf{$1}$0
 endsnippet
 
-snippet mca "mathcal" iA
+snippet mca "mathcal" iw
 \mathcal{$1}$0
 endsnippet
 
-snippet msc "mathscr" iA
+snippet mfr "mathfrack" iw
+\mathfrak{$1}$0
+endsnippet
+
+snippet msc "mathscr" iw
 \mathscr{$1}$0
 endsnippet
 
@@ -846,4 +868,14 @@ endsnippet
 
 snippet "Inj" "Injective class" rw
 \text{Inj}($1)$0
+endsnippet
+
+##### Extriangulated Categories #####
+
+snippet "tng" "Triangle" rw
+\begin{tikzcd}
+    &$1 \arrow{ddl}{[1]}[swap]{$4} \\\\ \\\\
+	$2 \arrow{rr}[swap]{$5} &&$3 \arrow{uul}[swap]{$6}
+\end{tikzcd}
+$0
 endsnippet
