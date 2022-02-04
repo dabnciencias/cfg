@@ -63,6 +63,21 @@ inoremap jf <Esc>
 inoremap FJ <Esc>
 inoremap JF <Esc>
 
+" Mapping to emulate tab numbering starting from 0
+nnoremap 0gt 1gt
+nnoremap 1gt 2gt
+nnoremap 2gt 3gt
+nnoremap 3gt 4gt
+nnoremap 4gt 5gt
+nnoremap 5gt 6gt
+nnoremap 6gt 7gt
+nnoremap 7gt 8gt
+nnoremap 8gt 9gt
+
+" Mapping 
+nnoremap <C-h> gT
+nnoremap <C-l> gt
+
 " Mapping Ctrl+F to inkscape-figures commands
 inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
