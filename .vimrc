@@ -25,6 +25,10 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+" rustfmt
+Plug 'alx741/vim-rustfmt'
+let g:rustfmt_on_save = 1
+
 call plug#end()
 
 " Enable syntax higlighting

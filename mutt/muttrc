@@ -1,0 +1,23 @@
+## Color scheme
+source ~/.config/mutt/colors_muttrc
+
+## General options
+# set header_cache = "~/.cache/mutt"
+set imap_check_subscribed
+set imap_keepalive = 300
+unset imap_passive
+set mail_check = 60
+set mbox_type=Maildir
+
+## Folder hooks
+folder-hook 'personal' 'source ~/.config/mutt/personal'
+folder-hook 'FC' 'source ~/.config/mutt/FC'
+folder-hook 'IMATE' 'source ~/.config/mutt/IMATE'
+
+# Default account
+source ~/.config/mutt/personal
+
+# macros for switching between accounts
+macro index <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/personal<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/FC<enter><change-folder>!<enter>'
+macro index <f4> '<sync-mailbox><enter-command>source ~/.config/mutt/IMATE<enter><change-folder>!<enter>'

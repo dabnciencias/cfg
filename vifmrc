@@ -193,10 +193,10 @@ fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 
 " Web
 filextype {*.html,*.htm},<text/html>
+        \ {Open with librewolf}
+        \ librewolf %f &,
         \ {Open with dwb}
         \ dwb %f %i &,
-        \ {Open with firefox}
-        \ firefox %f &,
         \ {Open with uzbl}
         \ uzbl-browser %f %i &,
 filetype {*.html,*.htm},<text/html> links, lynx

@@ -1,17 +1,25 @@
-# Goes in ~/.xprofile
+# Goes in ~/
 
-# This sets my prefferred keyboard layout
+# Keyboard Layout
 setxkbmap us altgr-intl
 
-# This restores the last wallpaper set with nitrogen
+# Wallpaper
 nitrogen --restore &
 
-# This uses picom as a compositor
+# Compositor
 picom -f &
 
-# This restores the last keyboard lighting profile set with ckb-next
-# (Be sure to install the 'ckb-next' package)
+# Keyboard Lighting
 ckb-next -b &
 
-# Activate numlock (be sure to install the 'numlockx' package)
+# Activate numlock
 numlockx on &
+
+# Synchronize PRIMARY, CLIPBOARD and cut buffer selections
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
+
+# Start up pipewire
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/wireplumber &

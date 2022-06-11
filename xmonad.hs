@@ -4,7 +4,6 @@ import Data.Ratio
 import XMonad
 import XMonad.Actions.CycleWS     
 import XMonad.Actions.RotSlaves     
-import XMonad.Actions.PhysicalScreens
 import XMonad.Hooks.DynamicLog    
 import XMonad.Hooks.EwmhDesktops  
 import XMonad.Hooks.ManageHelpers 
@@ -12,8 +11,8 @@ import XMonad.Layout.NoBorders (smartBorders, noBorders)
 import XMonad.Layout.PerScreen
 import XMonad.Layout.ThreeColumns
 
-import qualified Data.Map        as M
 import qualified XMonad.StackSet as W
+import qualified Data.Map        as M
 
 -- Virtual terminal program
 myTerminal      = "st"
@@ -26,7 +25,7 @@ myFocusFollowsMouse = True
 myBorderWidth   = 3
 
 -- No borders in fullscreen
-myLayoutHook    = smartBorders $ ifWider 1920 (Tall 1 (3/100) (1/2)) (Mirror (Tall 1 (3/100) (1/2))) ||| ifWider 1920 (ThreeColMid 1 (1/20) (1/2)) (Tall 1 (3/100) (1/2)) ||| noBorders Full
+myLayoutHook    = smartBorders $ ifWider 1920 (Tall 1 (3/100) (1/2)) (Mirror (Tall 1 (3/100) (1/3))) ||| ifWider 1920 (ThreeColMid 1 (1/20) (1/2)) (Tall 1 (3/100) (1/2)) ||| noBorders Full
 
 -- Use "Windows key" as modifier key
 myModMask       = mod4Mask
@@ -83,6 +82,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run")
 
+    -- launch neomutt
+    , ((modm,               xK_n     ), spawn "st -e neomutt")
+
     -- launch moc
     , ((modm .|. shiftMask, xK_m     ), spawn "st -e mocp")
 
@@ -119,10 +121,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch vifm
     , ((modm,               xK_f    ), spawn "st -e vifm")
 
-    -- launch librewolf
+    -- launch firefox
     , ((modm,               xK_w     ), spawn "librewolf")
 
-    -- launch librewolf private window
+    -- launch firefox private window
     , ((modm .|. shiftMask, xK_w     ), spawn "librewolf --private-window")
     
     -- launch stremio
@@ -139,6 +141,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- screenshot a certain area and save to clipboard
     , ((modm,               xK_Print ), spawn "sleep 0.2; scrot -s -f ~/Pictures/Screenshot_%Y%m%d_%T.png -e 'xclip -selection c -t image/png < $f'")
+
+    -- kill screenkey
+    , ((modm .|. shiftMask, xK_k     ), spawn "pkill -f screenkey")
     
     ]
 
@@ -148,12 +153,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0])
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-
-    ++
-
-    -- Toggle view between two screens and shift windows to another screen
-    [ ((modm, xK_d), onNextNeighbour def W.view)
-    , ((modm .|. shiftMask, xK_d), onNextNeighbour def W.shift) ]
 
 -------------------------------------------------------------
 --- Mouse bindings: default actions bound to mouse events ---
@@ -178,6 +177,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 myManageHook = composeAll
   [ isFullscreen --> doFullFloat
   , className =? "TelegramDesktop" --> doShift "0"
+  , title =? "neomutt" --> doShift "0"
   , className =? "discord" --> doShift "0"
   , className =? "Slack" --> doShift "0"
   , className =? "Transmission-gtk" --> doShift "9"

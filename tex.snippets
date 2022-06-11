@@ -88,19 +88,6 @@ snippet beg "begin{} / end{}" bA
 \end{$1}
 endsnippet
 
-snippet cen "center environment" bA
-\begin{center}
-    $1
-\end{center}
-$0
-endsnippet
-
-snippet equ "equation environment" bA
-\begin{equation}$1
-    $0
-\end{center}
-endsnippet
-
 snippet table "Table environment" b
 \begin{table}[${1:htpb}]
 	\centering
@@ -191,9 +178,16 @@ snippet algn "Align without numbering each line" b
 endsnippet
 
 snippet cd "Commutative diagram" b
-\begin{tikzcd}
-    $0
-\end{tikzcd}
+\begin{center}
+    \begin{tikzcd}
+	    $1
+	\end{tikzcd}
+\end{center}
+$0
+endsnippet
+
+snippet rtb "Rotate box"
+\rotatebox{$1}{$2}$0
 endsnippet
 
 snippet exer "Begin exercise" b
@@ -224,15 +218,15 @@ snippet tbf "bold text" iA
 \textbf{$1}$0
 endsnippet
 
-snippet em "emphasis/italics" iw
+snippet em "emphasis/italics"
 \emph{$1}$0
 endsnippet
 
-snippet un "underline" iw
+snippet un "underline"
 \underline{$1}$0
 endsnippet
 
-snippet ov "overline" iw
+snippet ov "overline"
 \overline{$1}$0
 endsnippet
 
@@ -240,7 +234,7 @@ snippet fn "footnote" i
 \footnote{$1}$0
 endsnippet
 
-snippet lbl "label" iw
+snippet lab "label"
 \label{$1}$0
 endsnippet
 
@@ -307,10 +301,6 @@ endsnippet
 snippet np "newpage" b
 \newpage
 $0
-endsnippet
-
-snippet tss "Superscript in text mode" iw
-\textsuperscript{$1}$0
 endsnippet
 
 ########## Math Mode ##########
@@ -539,7 +529,7 @@ snippet "([a-zA-Z])sqrt" "sqrt postfix" riA
 \sqrt{`!p snip.rv=match.group(1)`}
 endsnippet 
 
-snippet "frac" "frac" rwA
+snippet "frac" "frac" rw
 \frac{$1}{$2}$0
 endsnippet
 
@@ -551,24 +541,24 @@ snippet idx "integral" A
 \int_{$1}^{$2} $3 d$4 $0
 endsnippet
 
-snippet mbb "mathbb" iw
-\mathbb{$1}$0
-endsnippet
-
-snippet mbf "math bold" iw
+snippet mbf "math bold" A
 \mathbf{$1}$0
 endsnippet
 
-snippet mca "mathcal" iw
+snippet mbb "mathbb" iA
+\mathbb{$1}$0
+endsnippet
+
+snippet mca "mathcal" iA
 \mathcal{$1}$0
 endsnippet
 
-snippet mfr "mathfrack" iw
-\mathfrak{$1}$0
+snippet msc "mathscr" iA
+\mathscr{$1}$0
 endsnippet
 
-snippet msc "mathscr" iw
-\mathscr{$1}$0
+snippet mfr "mathfrak" iA
+\mathfrak{$1}$0
 endsnippet
 
 snippet deg "degree symbol" w
@@ -870,12 +860,9 @@ snippet "Inj" "Injective class" rw
 \text{Inj}($1)$0
 endsnippet
 
-##### Extriangulated Categories #####
+########## Miscellaneous ##########
 
-snippet "tng" "Triangle" rw
-\begin{tikzcd}
-    &$1 \arrow{ddl}{[1]}[swap]{$4} \\\\ \\\\
-	$2 \arrow{rr}[swap]{$5} &&$3 \arrow{uul}[swap]{$6}
-\end{tikzcd}
-$0
+snippet ## "sharp" iA
+\sharp
 endsnippet
+
