@@ -2,9 +2,12 @@ export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
 export EDITOR=vim
 
 alias activate="source venv/bin/activate"
-alias ayayay="yay"
+alias bc="eva"
+alias cat="bat"
 alias fim="devour fim"
-alias g++="g++ -std=c++17 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -Werror"
+alias grep="rg"
+#alias g++="g++ -std=c++11 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -Werror"
+alias ls="exa -alF"
 alias ma="doas mount -a"
 alias poweroff="doas poweroff"
 alias tesis="vim -p ~/ExTr/0.tex ~/ExTr/1.tex ~/ExTr/2.tex ~/ExTr/3.tex ~/ExTr/4.tex ~/ExTr/5.tex ~/ExTr/tesis.tex ~/ExTr/pre.tex ~/ExTr/intro.tex ~/ExTr/tesis.bib -c ':tabn | :tabn | :tabn | :tabn'"

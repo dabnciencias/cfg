@@ -1,4 +1,4 @@
-snippet main "main function" bA
+snippet main "main function" b
 int main()
 {
 
@@ -11,8 +11,7 @@ endsnippet
 snippet blk "block" b
 {
     $1
-}
-$0
+}$0
 endsnippet
 
 # ------- #
@@ -43,7 +42,7 @@ $0    $2
 endsnippet
 
 snippet else "else statement" b
-else ($1)
+else
 $0    $2
 endsnippet
 
@@ -56,14 +55,39 @@ snippet switch "switch statement" b
 switch ($1)
 {
     case $2:
-	    $3;
-    case $4:
-	    $5;$6
-}
-$0
+    $4    $3
+}$0
 endsnippet
 
 snippet case "case statement" b
 case $1:
-    $2;$3
+$0    $2
+endsnippet
+
+snippet dflt "default statement" b
+default:
+    $0
+endsnippet
+
+snippet while "while loop" b
+while ($1)
+$0    $2
+endsnippet
+
+snippet for "for" b
+for ($1; $2; $3)
+$0    $4
+endsnippet
+
+snippet tmpl "template" b
+template <typename $1>
+$0
+endsnippet
+
+# ------ #
+# ARRAYS #
+# ------ #
+
+snippet vec "vector" b
+vector<$1> $0
 endsnippet
