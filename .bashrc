@@ -3,7 +3,9 @@ export EDITOR=vim
 
 alias activate="source venv/bin/activate"
 alias bc="eva"
-alias bt="sudo rfkill block wlan && sudo rc-service bluetoothd start"
+alias brilliant="vim -p ~/Elm/alganim/src/DraggableVector.elm ~/Elm/alganim/src/PlaneCoordinates.elm"
+alias bton="sudo rfkill block wlan && sudo rc-service bluetoothd start"
+alias btoff="sudo rfkill unblock wlan && sudo rc-service bluetoothd stop"
 alias cat="bat"
 alias ert="cd ~/Elm/beginning-elm/ && elm reactor"
 alias fim="devour fim"
@@ -11,6 +13,8 @@ alias grep="rg"
 #alias g++="g++ -std=c++11 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -Werror"
 alias ls="exa -alF"
 alias ma="doas mount -a"
+alias manim="python3 -m manim"
+alias ms="manim -psqh"
 alias poweroff="doas poweroff"
 alias tesis="vim -p ~/ExTr/0.tex ~/ExTr/1.tex ~/ExTr/2.tex ~/ExTr/3.tex ~/ExTr/4.tex ~/ExTr/5.tex ~/ExTr/tesis.tex ~/ExTr/pre.tex ~/ExTr/intro.tex ~/ExTr/tesis.bib -c ':tabn | :tabn | :tabn | :tabn'"
 alias reboot="doas reboot"
@@ -30,10 +34,10 @@ colour() { doas ratslap --modify F3 --colour $1 ; }
 audiorec() { ffmpeg -f pulse -channels $1 -i default $HOME/Music/`date +%Y%m%d_%H%M%S`.wav ; }
 
 # Record video with ffmpeg
-# --webcam and --screen options assume only one microphone is being used
+# --webcam and --screen options assume only one microphone is being used 2560x1080
 videorec() {
     if [ $1 = "--screen" ]; then
-        `ffmpeg -f x11grab -video_size 2560x1080 -framerate 30 -thread_queue_size 1024 -i $DISPLAY -f pulse -thread_queue_size 1024 -channels 1 -i default -c:v libx264 -preset superfast -c:a aac -ac 2 $HOME/Videos/$(date +%Y%m%d_%H%M%S).mp4`
+        `ffmpeg -f x11grab -video_size 1366x768 -framerate 30 -thread_queue_size 1024 -i $DISPLAY -f pulse -thread_queue_size 1024 -channels 1 -i default -c:v libx264 -preset superfast -c:a aac -ac 2 $HOME/Videos/$(date +%Y%m%d_%H%M%S).mp4`
     elif [ $1 = "--screen-no-audio" ]; then
         ` ffmpeg -f x11grab -video_size 2560x1080 -framerate 30 -thread_queue_size 1024 -i $DISPLAY -c:v libx264 -preset superfast $HOME/Videos/$(date +%Y%m%d_%H%M%S).mp4`
     elif [ $1 = "--webcam" ]; then

@@ -101,6 +101,22 @@ function! XTermPasteBegin()
     return ""
 endfunction
 
+"Elm-vim
+Plug 'elmcast/elm-vim'
+
+"Run elm-format on each save
+let g:elm_format_autosave = 1
+
+" Elm syntax highlighting
+Plug 'andys8/vim-elm-syntax'
+
+" Install CoC for NodeJS
+" Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Or build from source code by using yarn: https://yarnpkg.com
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+
 " To get all UTF-8 characters to appear correctly in vim, make sure
 " you've uncommented the line 'en_US.UTF-8 UTF-8' in /etc/locale.gen
 " and run 'locale gen' and 'localectl set-locale LANG=en_US.UTF-8'
