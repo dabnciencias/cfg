@@ -3,7 +3,9 @@ export EDITOR=vim
 
 alias activate="source venv/bin/activate"
 alias bc="eva"
+alias bt="sudo rfkill block wlan && sudo rc-service bluetoothd start"
 alias cat="bat"
+alias ert="cd ~/Elm/beginning-elm/ && elm reactor"
 alias fim="devour fim"
 alias grep="rg"
 #alias g++="g++ -std=c++11 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -Werror"
@@ -14,6 +16,7 @@ alias tesis="vim -p ~/ExTr/0.tex ~/ExTr/1.tex ~/ExTr/2.tex ~/ExTr/3.tex ~/ExTr/4
 alias reboot="doas reboot"
 alias sbrc="source ~/.bashrc"
 alias unblock="doas rfkill unblock wlan"
+#alias vim="vim --servername vim"
 alias xournalpp="devour xournalpp"
 alias zathura="devour zathura"
 

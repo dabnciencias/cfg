@@ -10,6 +10,7 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.NoBorders (smartBorders, noBorders)
 import XMonad.Layout.PerScreen
 import XMonad.Layout.ThreeColumns
+import XMonad.Util.NamedScratchpad
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -25,7 +26,7 @@ myFocusFollowsMouse = True
 myBorderWidth   = 3
 
 -- No borders in fullscreen
-myLayoutHook    = smartBorders $ ifWider 1920 (Tall 1 (3/100) (1/2)) (Mirror (Tall 1 (3/100) (1/3))) ||| ifWider 1920 (ThreeColMid 1 (1/20) (1/2)) (Tall 1 (3/100) (1/2)) ||| noBorders Full
+myLayoutHook    = smartBorders $ ifWider 1920 (Tall 1 (3/100) (1/2)) (Mirror (Tall 1 (3/100) (1/2))) ||| ifWider 1920 (ThreeColMid 1 (1/20) (1/2)) (Tall 1 (3/100) (1/2)) ||| noBorders Full
 
 -- Use "Windows key" as modifier key
 myModMask       = mod4Mask
@@ -82,11 +83,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run")
 
+    -- launch audacity
+    , ((modm,               xK_a     ), spawn "audacity")
+
     -- launch neomutt
     , ((modm,               xK_n     ), spawn "st -e neomutt")
-
-    -- launch moc
-    , ((modm .|. shiftMask, xK_m     ), spawn "st -e mocp")
 
     -- moc play from the beginning of the playlist
     , ((0,                0x1008FF12 ), spawn "st -e mocp -p")
@@ -125,7 +126,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_w     ), spawn "librewolf")
 
     -- launch firefox private window
-    , ((modm .|. shiftMask, xK_w     ), spawn "librewolf --private-window")
+    , ((modm .|. shiftMask, xK_w     ), spawn "chromium")
     
     -- launch stremio
     , ((modm,               xK_e     ), spawn "stremio")
@@ -145,6 +146,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- kill screenkey
     , ((modm .|. shiftMask, xK_k     ), spawn "pkill -f screenkey")
     
+    -- toggle st scratchpad
+    , ((modm,               xK_s     ), namedScratchpadAction scratchpads "st")
+
+    -- toggle mocp scratchpad
+    , ((modm .|. shiftMask, xK_m     ), namedScratchpadAction scratchpads "mocp")
+
     ]
 
     ++
@@ -216,6 +223,21 @@ myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 -------------------------------------------------------------
+------------------------ Scratchpads ------------------------
+-------------------------------------------------------------
+
+scratchpads :: [NamedScratchpad]
+scratchpads = [
+
+    NS "st" "st -n scratchpad" (resource =? "scratchpad")
+        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19)),
+
+    NS "mocp" "st -n mocp -e mocp" (resource =? "mocp")
+        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19))
+
+  ]
+
+-------------------------------------------------------------
 ------------------------ Run xmonad -------------------------
 -------------------------------------------------------------
 
@@ -236,5 +258,8 @@ defaults = def {
         mouseBindings       = myMouseBindings,
 
         -- hooks, layouts
-        manageHook          = myManageHook
+        manageHook          = myManageHook <+> namedScratchpadManageHook scratchpads,
+
+        logHook             = dynamicLogWithPP . filterOutWsPP [scratchpadWorkspaceTag] $ def
+
         }
