@@ -9,6 +9,9 @@ nitrogen --restore &
 # Compositor
 picom -f &
 
+# Keyboard Lighting
+ckb-next -b &
+
 # Activate numlock
 numlockx on &
 

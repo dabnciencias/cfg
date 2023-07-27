@@ -11,18 +11,23 @@ alias ert="cd ~/Elm/beginning-elm/ && elm reactor"
 alias fim="devour fim"
 alias grep="rg"
 #alias g++="g++ -std=c++11 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -Werror"
+alias kb="setxkbmap us altgr-intl"
 alias ls="exa -alF"
 alias ma="doas mount -a"
-alias manim="python3 -m manim"
-alias ms="manim -psqh"
+alias ml="manim -ql"
+alias ms="manim -sqh"
 alias poweroff="doas poweroff"
 alias tesis="vim -p ~/ExTr/0.tex ~/ExTr/1.tex ~/ExTr/2.tex ~/ExTr/3.tex ~/ExTr/4.tex ~/ExTr/5.tex ~/ExTr/tesis.tex ~/ExTr/pre.tex ~/ExTr/intro.tex ~/ExTr/tesis.bib -c ':tabn | :tabn | :tabn | :tabn'"
 alias reboot="doas reboot"
 alias sbrc="source ~/.bashrc"
+alias sxiv="devour sxiv"
 alias unblock="doas rfkill unblock wlan"
 #alias vim="vim --servername vim"
 alias xournalpp="devour xournalpp"
 alias zathura="devour zathura"
+
+# Deploy manim animation environment
+mn() { devour st -e vim ~/alganim/$1/$2.py & st -e vifm ~/manimce/media/images/$2 ~/manimce/media/videos/$2/480p15/ & st -e vim ~/alganim/$1/*.tex ; }
 
 # Mount device with umask=000
 mymount() { doas mount $1 $2 -o umask=000 ; }

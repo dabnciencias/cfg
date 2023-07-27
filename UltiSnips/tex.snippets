@@ -88,6 +88,60 @@ snippet beg "begin{} / end{}" bA
 \end{$1}
 endsnippet
 
+snippet Def "Definición" b
+\begin{Def}\label{Def: $1}$2
+    $0
+\end{Def}
+endsnippet
+
+snippet Ejem "Ejemplo" b
+\begin{Ejem}\label{Ejem: $1}$2
+    $0
+\end{Ejem}
+endsnippet
+
+snippet Obs "Observación" b
+\begin{Obs}\label{Obs: $1}$2
+    $0
+\end{Obs}
+endsnippet
+
+snippet Nota "Nota" b
+\begin{Nota}\label{Nota: $1}$2
+    $0
+\end{Nota}
+endsnippet
+
+snippet Lema "Lema" b
+\begin{Lema}[$1]\label{Lema: $1$2}$3
+    $0
+\end{Lema}
+endsnippet
+
+snippet Prp "Proposición" b
+\begin{Prop}[$1]\label{Prop: $1$2}$3
+    $0
+\end{Prop}
+endsnippet
+
+snippet Teo "Teorema" b
+\begin{Teo}[$1]\label{Teo: $1$2}$3
+    $0
+\end{Teo}
+endsnippet
+
+snippet Coro "Corolario" b
+\begin{Coro}[$1]\label{Coro: $1$2}$3
+    $0
+\end{Coro}
+endsnippet
+
+snippet Ejer "Ejer" b
+\begin{Ejer}[$1]\label{Ejer: $1$2}$3
+    $0
+\end{Ejer}
+endsnippet
+
 snippet table "Table environment" b
 \begin{table}[${1:htpb}]
 	\centering
@@ -205,7 +259,6 @@ snippet proof "Begin proof" b
 
 	$2
 \end{proof}
-
 endsnippet
 
 snippet cases "Begin cases"
@@ -234,15 +287,15 @@ snippet fn "footnote" i
 \footnote{$1}$0
 endsnippet
 
-snippet lab "label"
-\label{$1}$0
-endsnippet
-
 snippet cap "caption"
 \caption{$1}$0
 endsnippet
 
-snippet ref "reference"
+snippet lbl "label" wA
+\label{$1}$0
+endsnippet
+
+snippet ref "reference" w
 \ref{$1}$0
 endsnippet
 
@@ -279,19 +332,19 @@ snippet tw "textwidth"
 endsnippet
 
 snippet chap "chapter"
-\chapter{$1} \label{$2}$0
+\chapter{$1}\label{Chap: $1}$0
 endsnippet
 
 snippet sec "section"
-\section{$1} \label{Sec: $1}$0
+\section{$1}\label{Sec: $1}$0
 endsnippet
 
 snippet ssec "subsection"
-\subsection{$1} \label{Ssec: $1}$0
+\subsection{$1}\label{Ssec: $1}$0
 endsnippet
 
 snippet sssec "subsubsection"
-\subsubsection{$1} \label{Sssec: $1}$0
+\subsubsection{$1}\label{Sssec: $1}$0
 endsnippet
 
 snippet noin "no indent" iA
@@ -469,54 +522,54 @@ snippet node "node"
 node[$1] $2 {$3}$0
 endsnippet
 
-snippet XX "times" iA
-\times$0
+snippet XX "times" i
+\times $0
 endsnippet
 	
 snippet vv "vee" iA
-\vee$0
+\vee $0
 endsnippet
 	
 snippet VV "bigvee" iA
-\bigvee$0
+\bigvee $0
 endsnippet
 
 snippet =- "equivalent" i
-\equivalent$0
+\equivalent $0
 endsnippet
 
 priority 10
 snippet ~ "similar to" i
-\sim$0
+\sim $0
 endsnippet
 
 priority 100
 snippet ~- "similar or equal to" i
-\simeq$0
+\simeq $0
 endsnippet
 
 snippet ~= "congruent" i
-\cong$0
+\cong $0
 endsnippet
 
 snippet /= "not equal to" i
-\neq$0
+\neq $0
 endsnippet
 
 snippet subeq "subseteq" iA
-\subseteq$0
+\subseteq $0
 endsnippet
 
 snippet <= "leq" i
-\le$0
+\le $0
 endsnippet
 
 snippet <\ "leqslant" i
-\leqslant$0
+\leqslant $0
 endsnippet
 
 snippet >= "geq" i
-\ge$0
+\ge $0
 endsnippet
 
 priority 10

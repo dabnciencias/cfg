@@ -194,13 +194,9 @@ myManageHook = composeAll
   , title =? " " --> doFloat
   , className =? "Steam" --> doShift "9"
   , title =? "Stephen's Sausage Roll" --> doFullFloat
-  , title =? "Brawlhalla" --> doFullFloat
-  , title =? "Pony Island" --> doFullFloat
-  , title =? "Manifold Garden" --> doFloat
-  , title =? "Pummel Party" --> doFloat
-  , title =? "Hollow Knight" --> doFloat
-  , title =? "UNDERTALE" --> doFloat
-  , title =? "Celeste" --> doFloat
+  , title =? "A Hat in Time" --> doFloat
+  , title =? "BattleBlock Theater" --> doFloat
+  , title =? "Ori and the Blind Forest: Definitive Edition" --> doFloat
   , className =? "zoom" <&&> title=? "Chat" --> doFloat
   , className =? "mpv" --> doFloat
   , className =? "QjackCtl" --> doRectFloat (W.RationalRect (1 % 1) (1 % 1) (4 % 10) (1 % 7))

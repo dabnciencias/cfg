@@ -1,6 +1,5 @@
 # Goes in ~/.config/zathura/zathurarc
+# This makes zathura open up the current document in Okular.
+# It is useful for editing documents.
 
-# This makes zathura open up the current document in Okular:
-set synctex true
 map <C-a> feedkeys ":exec okular %<Return>"
-# which is useful for editing documents.

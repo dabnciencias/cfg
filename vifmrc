@@ -210,10 +210,8 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " Images
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.xpm},<image/*>
-        \ {View in fim}
-        \ devour fim %f,
         \ {View in sxiv}
-        \ sxiv %f,
+        \ devour sxiv %f,
         \ {View in gpicview}
         \ gpicview %c,
         \ {View in shotwell}
