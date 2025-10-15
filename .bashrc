@@ -1,31 +1,45 @@
 #Goes in ~/
+export ARXIV_DOWNLOAD_FOLDER="/home/dabn/Downloads/kobo/Doctorado/Leer/"
 export FBFONT=/usr/share/kbd/consolefonts/ter-216n.psf.gz
 export EDITOR=vim
+export PATH="$PATH:/home/dabn/.local/bin"
+export READER=zathura
 
 alias activate="source venv/bin/activate"
+alias adl="arxiv-dl"
 alias bc="eva"
+alias bib="pybibget"
 alias brilliant="vim -p ~/Elm/alganim/src/DraggableVector.elm ~/Elm/alganim/src/PlaneCoordinates.elm"
 alias bton="sudo rfkill block wlan && sudo rc-service bluetoothd start"
 alias btoff="sudo rfkill unblock wlan && sudo rc-service bluetoothd stop"
+alias btr="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias cat="bat"
+alias dw="termdown -abs -c 900 2h -T 'deep work' -t 'rest time' --no-figlet"
 alias ert="cd ~/Elm/beginning-elm/ && elm reactor"
-alias fim="devour fim"
 alias grep="rg"
-alias grupos="vim -p ~/AM/Notas/0.tex ~/AM/Notas/1.tex ~/AM/Notas/2.tex ~/AM/Notas/3.tex ~/AM/Notas/notasGrupos.tex ~/AM/Notas/pre.tex ~/AM/Notas/intro.tex -c ':tabn | :tabn'"
-alias kb"=setxkbmap us altgr-intl"
+alias grupos="vim -p ~/AM/Notas/0.tex ~/AM/Notas/1.tex ~/AM/Notas/2.tex ~/AM/Notas/3.tex ~/AM/Notas/notasGrupos.tex ~/AM/Notas/pre.tex ~/AM/Notas/intro.tex -c ':tabn | :tabn | :tabn'"
+alias kb="setxkbmap us altgr-intl"
 alias ls="exa -alF"
 alias ma="doas mount -a"
-alias manim="python3 -m manim"
-alias ms="manim -psqh"
+alias manim=".venv/bin/python -m manim" #using python project manager uv
+alias ms="manim -psqh"                  #generate last frame
 alias poweroff="doas poweroff"
 alias reboot="doas reboot"
+alias nts="vim -p ~/Downloads/kobo/Doctorado/Notes/misc.tex ~/Downloads/kobo/Doctorado/Notes/pre.tex ~/Downloads/kobo/Doctorado/Notes/additiveCategoryTheory.tex ~/Downloads/kobo/Doctorado/Notes/approximationTheory.tex ~/Downloads/kobo/Doctorado/Notes/purityTheory.tex ~/Downloads/kobo/Doctorado/Notes/siltingAndCosiltingTheory.tex ~/Downloads/kobo/Doctorado/Notes/mutationTheory.tex ~/.vim/UltiSnips/tex.snippets ~/Downloads/kobo/Doctorado/Notes/misc.bib ~/Downloads/kobo/Doctorado/Notes/misc.log -c ':tabn | :tabn | :tabn | :tabn | :tabn'"
+alias s2p="scitopdf"
 alias sbrc="source ~/.bashrc"
+alias some="cd ~/dabnimations/SoME4; pixi shell"
+alias sxiv="devour sxiv"
 alias unblock="doas rfkill unblock wlan"
 alias xournalpp="devour xournalpp"
 alias zathura="devour zathura"
 
 # Mount device with umask=000
 mymount() { doas mount $1 $2 -o umask=000 ; }
+
+#
+lecture() { vim -p ~/Downloads/kobo/Doctorado/Notes/$1/$1.tex ~/.vim/UltiSnips/tex.snippets ~/Downloads/kobo/Doctorado/Notes/misc.bib ~/Downloads/kobo/Doctorado/Notes/$1/$1Notes.tex ~/Downloads/kobo/Doctorado/Notes/$1/$1Slides.tex ; }
+draft() { vim -p ~/Downloads/kobo/Doctorado/Drafts/$1/$1.tex ~/Downloads/kobo/Doctorado/Notes/pre.tex ~/.vim/UltiSnips/tex.snippets ~/Downloads/kobo/Doctorado/Notes/misc.bib ~/Downloads/kobo/Doctorado/Drafts/$1/$1.log ; }
 
 # Change Logitech G300s mouse color
 colour() { doas ratslap --modify F3 --colour $1 ; }
@@ -57,4 +71,27 @@ videostream() {
     fi
 }
 
-sl() { streamlink --player mpv https://twitch.tv/$1 best ; }
+# set dual monitors
+dual () {
+    xrandr --output DP-1 --primary --left-of HDMI-1 --output HDMI-1 --auto
+}
+
+# set single monitor
+single() {
+    xrandr --output HDMI-1 --off
+}
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/etc/profile.d/conda.sh" ]; then
+        . "/usr/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

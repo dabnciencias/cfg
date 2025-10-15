@@ -162,6 +162,11 @@ filextype {*.djvu},<image/vnd.djvu>
         \ {View in apvlv}
         \ apvlv %f,
 
+" Epub
+filextype {*.epub},<application/epub>
+        \ {View in zathura}
+        \ devour zathura %f,
+
 " Audio
 filetype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus},
         \<audio/*>
@@ -192,7 +197,9 @@ fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
          \ ffprobe -pretty %c 2>&1
 
 " Web
-filextype {*.html,*.htm},<text/html>
+filextype {*.html,*.htm,*.webp,*.webm},<text/html>
+        \ {Open with icecat}
+        \ icecat %f &,
         \ {Open with librewolf}
         \ librewolf %f &,
         \ {Open with dwb}
@@ -209,15 +216,19 @@ filetype {*.[1-8]},<text/troff> man ./%c
 fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " Images
-filextype {*.bmp,*.jpg,*.jpeg,*.png,*.xpm},<image/*>
-        \ {View in sxiv}
-        \ devour sxiv %f,
-        \ {View in gpicview}
-        \ gpicview %c,
-        \ {View in shotwell}
-        \ shotwell,
-fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-         \ identify %f
+filetype *.jpg,*.jpeg,*.png,*.gif
+        \ {View in feh}
+        \ devour feh -FZd %d --start-at %d/%c 2>/dev/null
+
+"filextype {*.bmp,*.jpg,*.jpeg,*.png,*.xpm},<image/*>
+"        \ {View in nsxiv}
+"        \ devour nsxiv -to %d,
+"        \ {View in gpicview}
+"        \ gpicview %c,
+"        \ {View in shotwell}
+"        \ shotwell,
+"fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
+"         \ identify %f
 
 " Spreadsheet
 filextype {*.sc},
@@ -489,3 +500,6 @@ nnoremap <c-u> <c-w>x
 "     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
 "
 " let $VIFM_SERVER_NAME = v:servername
+
+" Create symbolic links with :ln
+command ln ln -s %f:p %D

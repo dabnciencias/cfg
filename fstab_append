@@ -1,4 +1,3 @@
-
 # External hard drive (be sure to install the 'ntfs-3g' package!)
 UUID=8A7ADFE97ADFCFD5				/media		ntfs-3g		defaults,nofail	0 2
 

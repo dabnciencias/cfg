@@ -1,3 +1,4 @@
+" Goes in ~/
 " Install plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -25,9 +26,16 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-" rustfmt
-Plug 'alx741/vim-rustfmt'
-let g:rustfmt_on_save = 1
+" mucomplete
+"Plug 'lifepillar/vim-mucomplete'
+"set completeopt+=menuone
+"set completeopt+=noselect
+"set shortmess+=c
+"set belloff+=ctrlg
+"let g:mucomplete#enable_auto_at_startup = 1
+"let g:mucomplete#can_complete = {}
+"let g:mucomplete#can_complete.tex = { 'omni': { t -> t =~# g:vimtex#re#neocomplete . '$' } }
+"let g:mucomplete#no_mappings = 1
 
 call plug#end()
 
@@ -100,6 +108,21 @@ function! XTermPasteBegin()
     set paste
     return ""
 endfunction
+
+" This makes pasting quick
+" :map <F7> :w xclip<CR><CR>
+:map <F7> :read !xclip -o<CR><CR>
+
+" This enables vimtex folding, with all folds open by default
+set foldmethod=expr
+set foldexpr=vimtex#fold#level(v:lnum)
+set foldtext=vimtex#fold#text()
+set foldlevelstart=99
+
+" Correct previous spelling mistake with Ctrl+L
+" setlocal spell
+" set spelllang=en_us
+" inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 "Elm-vim
 Plug 'elmcast/elm-vim'

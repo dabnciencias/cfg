@@ -1,0 +1,12 @@
+# Goes in /etc/pacman.d/hooks/
+# This resets the keyboard layout to us altgr-intl after every update
+
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Resetting keyboard layout...
+When = PostTransaction
+Exec = usr/bin/setxkbmap us altgr-intl

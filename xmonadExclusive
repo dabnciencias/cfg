@@ -8,11 +8,12 @@ import XMonad.Actions.RotSlaves
 import XMonad.Hooks.DynamicLog    
 import XMonad.Hooks.EwmhDesktops  
 import XMonad.Hooks.ManageHelpers 
-import XMonad.Hooks.RefocusLast 
 import XMonad.Layout.NoBorders (smartBorders, noBorders)
 import XMonad.Layout.PerScreen
 import XMonad.Layout.ThreeColumns
-import XMonad.Util.NamedScratchpad
+import XMonad.ManageHook (title, appName)
+import XMonad.Util.ExclusiveScratchpads
+--import XMonad.Util.NamedScratchpad
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -118,8 +119,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- open xournal 
     , ((modm,               xK_x     ), spawn "xournalpp")
 
-    -- launch icecat
-    , ((modm,               xK_w     ), spawn "icecat")
+    -- launch vifm
+    , ((modm,               xK_f    ), scratchpadAction scratchpads "vifm")
+
+    -- launch librewolf
+    , ((modm,               xK_w     ), spawn "librewolf")
 
     -- launch chromium
     , ((modm .|. shiftMask, xK_w     ), spawn "chromium")
@@ -146,13 +150,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --, ((modm .|. shiftMask, xK_k     ), spawn "pkill -f screenkey")
     
     -- toggle st scratchpad
-    , ((modm,               xK_s     ), namedScratchpadAction scratchpads "st")
-
-    -- launch vifm scratchpad
-    , ((modm,               xK_f     ), namedScratchpadAction scratchpads "vifm")
+--    , ((modm,               xK_s     ), namedScratchpadAction scratchpads "st")
 
     -- toggle mocp scratchpad
-    , ((modm .|. shiftMask, xK_m     ), namedScratchpadAction scratchpads "mocp")
+--    , ((modm .|. shiftMask, xK_m     ), namedScratchpadAction scratchpads "mocp")
 
     ]
 
@@ -193,6 +194,7 @@ myManageHook = composeAll
   , className =? "Transmission-gtk" --> doShift "9"
   , className =? "Stremio" --> doShift "9"
   , title =? "Media viewer" --> doFloat 
+  , title =? "mocp" --> doFloat
   , title =? " " --> doFloat
   , className =? "pavucontrol" --> doCenterFloat
   , className =? "Steam" --> doShift "9"
@@ -203,8 +205,6 @@ myManageHook = composeAll
   , title =? "Hollow Knight" --> doFloat
   , title =? "UNDERTALE" --> doFloat
   , title =? "Celeste" --> doFloat
-  , title =? "Pizza Tower" --> doFloat
-  , title =? "Baba Is You" --> doFullFloat
   , className =? "zoom" <&&> title=? "Chat" --> doFloat
   , className =? "mpv" --> doFloat
   , className =? "QjackCtl" --> doRectFloat (W.RationalRect (1 % 1) (1 % 1) (4 % 10) (1 % 7))
@@ -230,19 +230,14 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 ------------------------ Scratchpads ------------------------
 -------------------------------------------------------------
 
-scratchpads :: [NamedScratchpad]
-scratchpads = [
+scratchpads :: ExclusiveScratchpads
+scratchpads = mkXScratchpads
 
-    NS "st" "st -n st -f Monospace-20" (resource =? "st")
-        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19)),
+    [ ("st", "st -n scratchpad -f Monospace-20", title =? "scratchpad")
+    
+    , ("vifm", "st -f Monospace-20 -e vifm", title =? "vifm")
 
-    NS "vifm" "st -n vifm -f Monospace-20 -e vifm" (resource =? "vifm")
-        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19)),
-
-    NS "mocp" "st -n mocp -f Monospace-20 -e mocp" (resource =? "mocp")
-        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19))
-
-  ]
+    ] $ customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19)
 
 -------------------------------------------------------------
 ------------------------ Run xmonad -------------------------
@@ -265,8 +260,8 @@ defaults = def {
         mouseBindings       = myMouseBindings,
 
         -- hooks, layouts
-        manageHook          = myManageHook <+> namedScratchpadManageHook scratchpads,
+        manageHook          = myManageHook <+> xScratchpadsManageHook scratchpads,
         startupHook         = windows (greedyViewOnScreen 0 "2"),
         --logHook             = dynamicLogWithPP . filterOutWsPP [scratchpadWorkspaceTag] $ def
-        logHook             = refocusLastLogHook >> nsHideOnFocusLoss scratchpads
+        logHook             = dynamicLogWithPP $ def
         }

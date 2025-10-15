@@ -9,17 +9,17 @@ nitrogen --restore &
 # Compositor
 picom -f &
 
-# Keyboard Lighting
-ckb-next -b &
-
-# Activate numlock
-numlockx on &
+# Start up pipewire
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/wireplumber &
 
 # Synchronize PRIMARY, CLIPBOARD and cut buffer selections
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
-# Start up pipewire
-/usr/bin/pipewire &
-/usr/bin/pipewire-pulse &
-/usr/bin/wireplumber &
+# Activate numlock
+numlockx on &
+
+# Keyboard Lighting
+ckb-next -b &
