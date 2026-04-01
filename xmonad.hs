@@ -85,8 +85,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run")
 
-    -- launch pavucontrol
-    , ((modm,               xK_a     ), spawn "pavucontrol")
+    -- launch arandr
+    , ((modm,               xK_d     ), spawn "arandr")
 
     -- moc play from the beginning of the playlist
     , ((0,                0x1008FF12 ), spawn "st -e mocp -p")
@@ -150,6 +150,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch vifm scratchpad
     , ((modm,               xK_f     ), namedScratchpadAction scratchpads "vifm")
+
+    -- toggle pavucontrol scratchpad
+    , ((modm,               xK_a     ), namedScratchpadAction scratchpads "pavucontrol")
+
+    -- toggle blueman-manager scratchpad
+    , ((modm .|. shiftMask, xK_a     ), namedScratchpadAction scratchpads "blueman-manager")
 
     -- toggle mocp scratchpad
     , ((modm .|. shiftMask, xK_m     ), namedScratchpadAction scratchpads "mocp")
@@ -231,15 +237,19 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 -------------------------------------------------------------
 
 scratchpads :: [NamedScratchpad]
-scratchpads = [
+scratchpads = [ NS "st" "st -n st -f Monospace-20" (resource =? "st")
+        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19))
 
-    NS "st" "st -n st -f Monospace-20" (resource =? "st")
-        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19)),
+        , NS "vifm" "st -n vifm -f Monospace-20 -e vifm" (resource =? "vifm")
+        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19))
 
-    NS "vifm" "st -n vifm -f Monospace-20 -e vifm" (resource =? "vifm")
-        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19)),
+        , NS "pavucontrol" "st -n pavucontrol -f Monospace-20 -e pavucontrol" (resource =? "pavucontrol")
+        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19))
 
-    NS "mocp" "st -n mocp -f Monospace-20 -e mocp" (resource =? "mocp")
+        , NS "blueman-manager" "st -n blueman-manager -f Monospace-20 -e blueman-manager" (resource =? "blueman-manager")
+        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19))
+
+        , NS "mocp" "st -n mocp -f Monospace-20 -e mocp" (resource =? "mocp")
         (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19))
 
   ]

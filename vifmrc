@@ -501,5 +501,5 @@ nnoremap <c-u> <c-w>x
 "
 " let $VIFM_SERVER_NAME = v:servername
 
-" Create symbolic links with :ln
+" Create symbolic links with :ln; copies link of non-master directory into master
 command ln ln -s %f:p %D

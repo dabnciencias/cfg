@@ -3,23 +3,35 @@
 # Keyboard Layout
 setxkbmap us altgr-intl
 
+# If DisplayPort output is detected, make it primary and open xrandr GUI
+if xrandr --listmonitors | grep 'DisplayPort'; then
+    xrandr --output DisplayPort-1 --primary &
+    arandr &
+fi
+# Ditto for HDMI (note that, if present, it overrides DisplayPort)
+if xrandr --listmonitors | grep 'HDMI'; then
+    xrandr --output HDMI-1 --primary &
+    arandr &
+fi
+
 # Wallpaper
 nitrogen --restore &
 
 # Compositor
 picom -f &
 
-# Start up pipewire
-/usr/bin/pipewire &
-/usr/bin/pipewire-pulse &
-/usr/bin/wireplumber &
-
 # Synchronize PRIMARY, CLIPBOARD and cut buffer selections
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
+# Start up pipewire (leave near end)
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/wireplumber &
+/usr/bin/pamixer --set-volume 25 &
+
 # Activate numlock
-numlockx on &
+#numlockx on &
 
 # Keyboard Lighting
-ckb-next -b &
+#ckb-next -b &

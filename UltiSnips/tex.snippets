@@ -7,6 +7,7 @@
 #     Linear Algebra
 #     Modern Algebra
 #     Category Theory
+#	  Infinity Category Theory
 
 ########## Environments ##########
 
@@ -51,24 +52,19 @@ snippet template "Basic template" b
 	filecolor=magenta,
 	urlcolor=AZUL,
 }
-\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
-\newenvironment{teorema}[2][Teorema]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
-\newenvironment{lema}[2][Lema]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
-\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
 
-\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
-\newenvironment{problem}[2][Problem]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
-\newenvironment{question}[2][Question]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
-\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
-\newenvironment{corolario}[2][Corolario]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
-\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\numberwithin{section}{chapter}
+\newtheoremstyle{dotlessB}{}{}{}{}{\bfseries}{}{ }{}
+\theoremstyle{dotlessB}
+\newtheorem{Stp}{Setup}[section]
+\newtheorem{Dfn}{Definition}[Stp]
+\newtheorem{Exp}[Dfn]{Example}
+\newtheorem{Rmk}[Dfn]{Remark}
+\newtheorem{Lmm}[Dfn]{Lemma}
+\newtheorem{Prp}[Dfn]{Proposition}
+\newtheorem{Thm}[Dfn]{Theorem}
+\newtheorem{Cor}[Dfn]{Corollary}
+\newtheorem{Ntt}[Dfn]{Notation}
 
 \pgfplotsset{compat=1.15}
 
@@ -89,63 +85,99 @@ snippet beg "begin{} / end{}" bA
 endsnippet
 
 snippet Stp "Setup" b
-\begin{Stp}\label{Stp: $1}$2
+\begin{Stp}\label{stp: $1}$2
     $0
 \end{Stp}
 endsnippet
 
-snippet Def "Definición" b
-\begin{Def}\label{Def: $1}$2
-    $0
-\end{Def}
+snippet Setup "setup" wi
+Setup~\ref{stp: $1}$0
 endsnippet
 
-snippet Ejem "Ejemplo" b
-\begin{Ejem}\label{Ejem: $1}$2
+snippet Dfn "Definition" b
+\begin{Dfn}\label{dfn: $1}$2
     $0
-\end{Ejem}
+\end{Dfn}
 endsnippet
 
-snippet Obs "Observación" b
-\begin{Obs}\label{Obs: $1}$2
-    $0
-\end{Obs}
+snippet Definition "definition" wi
+Definition~\ref{dfn: $1}$0
 endsnippet
 
-snippet Nota "Nota" b
-\begin{Nota}\label{Nota: $1}$2
+snippet Exp "Example" b
+\begin{Exp}\label{exp: $1}$2
     $0
-\end{Nota}
+\end{Exp}
 endsnippet
 
-snippet Lema "Lema" b
-\begin{Lema}[$1]\label{Lema: $1$2}$3
-    $0
-\end{Lema}
+snippet Example "example" wi
+Example~\ref{exp: $1}$0
 endsnippet
 
-snippet Prp "Proposición" b
-\begin{Prop}[$1]\label{Prop: $1$2}$3
+snippet Rmk "Remark" b
+\begin{Rmk}\label{rmk: $1}$2
     $0
-\end{Prop}
+\end{Rmk}
 endsnippet
 
-snippet Teo "Teorema" b
-\begin{Teo}[$1]\label{Teo: $1$2}$3
-    $0
-\end{Teo}
+snippet Remark "remark" wi
+Remark~\ref{rmk: $1}$0
 endsnippet
 
-snippet Coro "Corolario" b
-\begin{Coro}[$1]\label{Coro: $1$2}$3
+snippet Exc "Exercise" b
+\begin{Exc}\label{exc: $1}$2
     $0
-\end{Coro}
+\end{Exc}
+endsnippet 
+
+snippet Exercise "exercise" wi
+Exercise~\ref{exc: $1}$0
 endsnippet
 
-snippet Ejer "Ejer" b
-\begin{Ejer}[$1]\label{Ejer: $1$2}$3
+snippet Lmm "Lemma" b
+\begin{Lmm}[$1]\label{lmm: $1$2}$3
     $0
-\end{Ejer}
+\end{Lmm}
+endsnippet
+
+snippet Lemma "lemma" wi
+Lemma~\ref{lmm: $1}$0
+endsnippet
+
+snippet Prp "Proposition" b
+\begin{Prp}[$1]\label{prp: $1$2}$3
+    $0
+\end{Prp}
+endsnippet
+
+snippet Proposition "proposition" wi
+Proposition~\ref{prp: $1}$0
+endsnippet
+
+snippet Thm "Theorem" b
+\begin{Thm}[$1]\label{thm: $1$2}$3
+    $0
+\end{Thm}
+endsnippet
+
+snippet Theorem "theorem" wi
+Theorem~\ref{thm: $1}$0
+endsnippet
+
+snippet Cor "Corollary" b
+\begin{Cor}[$1]\label{cor: $1$2}$3
+    $0
+\end{Cor}
+endsnippet
+
+snippet Corollary "corollary" wi
+Corollary~\ref{cor: $1}$0
+endsnippet
+
+snippet Ntt "Notation" b
+\begin{Ntt}
+    $0
+\end{Ntt}
 endsnippet
 
 snippet table "Table environment" b
@@ -162,9 +194,9 @@ endsnippet
 snippet tabu "Tabu (array) environment" b
 \begin{table}[$1]
     \centering
-	$\begin{tabu}{$2}$3
+	$\begin{tabular}{$2}$3
 	$4 
-	\end{tabu}$
+	\end{tabular}$
 \end{table}
 endsnippet	
 
@@ -277,19 +309,19 @@ snippet tbf "bold text" iA
 \textbf{$1}$0
 endsnippet
 
-snippet em "emphasis/italics"
+snippet em "emphasis/italics" iw
 \emph{$1}$0
 endsnippet
 
-snippet un "underline"
+snippet udl "underline" iw
 \underline{$1}$0
 endsnippet
 
-snippet ov "overline"
+snippet ovl "overline" iw
 \overline{$1}$0
 endsnippet
 
-snippet fn "footnote" i
+snippet ftn "footnote" iw
 \footnote{$1}$0
 endsnippet
 
@@ -297,12 +329,24 @@ snippet cap "caption"
 \caption{$1}$0
 endsnippet
 
-snippet lbl "label" wA
+snippet lab "label" w
 \label{$1}$0
 endsnippet
 
 snippet ref "reference" w
 \ref{$1}$0
+endsnippet
+
+snippet eq "equation" w
+\ref{eq: $1}$0
+endsnippet
+
+snippet hpr "hyperreference" i
+\hyperref[$1]{$2
+endsnippet
+
+snippet cite "hyperreference" i
+\cite[$1]{$2}$0
 endsnippet
 
 snippet htar "hypertarget" i
@@ -391,7 +435,7 @@ endsnippet
 
 snippet dm "Math" wA
 \[
-$1
+    $1
 \] 
 $0
 endsnippet
@@ -401,7 +445,15 @@ snippet "inv" "inverse notation" rw
 endsnippet
 
 snippet "op" "opposite" rw
-\text{op}
+\text{$1op}$0
+endsnippet
+
+snippet "lo" "left orthogonal" rw
+{}^{\perp_$1}$0
+endsnippet
+
+snippet "ro" "right orthogonal" rw
+^{\perp_$1}$0
 endsnippet
 
 priority 10
@@ -440,6 +492,22 @@ snippet OO "bullet" iA
 \bullet
 endsnippet
 
+snippet O+ "big direct sum" iA
+\bigoplus$0
+endsnippet
+
+snippet o+ "direct sum" iA
+\oplus$0
+endsnippet
+
+snippet OX "big tensor product" iA
+\bigotimes$0
+endsnippet
+
+snippet oX "tensor product" iA
+\otimes$0
+endsnippet
+
 snippet vphi "varphi" iA
 \varphi$0
 endsnippet
@@ -460,9 +528,9 @@ snippet CC "complex" iA
 \mathbb{C}
 endsnippet
 
-snippet RR "real" iA
-\mathbb{R}
-endsnippet
+#snippet RR "real" iA
+#\mathbb{R}
+#endsnippet
 
 snippet QQ "integer" iA
 \mathbb{Q}
@@ -529,53 +597,53 @@ node[$1] $2 {$3}$0
 endsnippet
 
 snippet XX "times" i
-\times $0
+\times$0
 endsnippet
 	
 snippet vv "vee" iA
-\vee $0
+\vee$0
 endsnippet
 	
 snippet VV "bigvee" iA
-\bigvee $0
+\bigvee$0
 endsnippet
 
 snippet =- "equivalent" i
-\equivalent $0
+\equivalent$0
 endsnippet
 
 priority 10
 snippet ~ "similar to" i
-\sim $0
+\sim$0
 endsnippet
 
 priority 100
 snippet ~- "similar or equal to" i
-\simeq $0
+\simeq$0
 endsnippet
 
 snippet ~= "congruent" i
-\cong $0
+\cong$0
 endsnippet
 
 snippet /= "not equal to" i
-\neq $0
+\neq$0
 endsnippet
 
 snippet subeq "subseteq" iA
-\subseteq $0
+\subseteq$0
 endsnippet
 
 snippet <= "leq" i
-\le $0
+\le$0
 endsnippet
 
 snippet <\ "leqslant" i
-\leqslant $0
+\leqslant$0
 endsnippet
 
 snippet >= "geq" i
-\ge $0
+\ge$0
 endsnippet
 
 priority 10
@@ -614,6 +682,10 @@ endsnippet
 
 snippet msc "mathscr" iA
 \mathscr{$1}$0
+endsnippet
+
+snippet msf "mathsf" iA
+\mathsf{$1}$0
 endsnippet
 
 snippet mfr "mathfrak" iA
@@ -668,14 +740,14 @@ snippet "([a-zA-Z])ket" "ket vector postfix" rw
 \ket{`!p snip.rv=match.group(1)`}
 endsnippet
 
-snippet "bra" "bra dual vector/functional" rw
-\bra{$1}$0
-endsnippet
-
-priority 100
-snippet "([a-zA-Z])bra" "ket vector postfix" rw
-\bra{`!p snip.rv=match.group(1)`}
-endsnippet
+#snippet "bra" "bra dual vector/functional" rw
+#\bra{$1}$0
+#endsnippet
+#
+#priority 100
+#snippet "([a-zA-Z])bra" "ket vector postfix" rw
+#\bra{`!p snip.rv=match.group(1)`}
+#endsnippet
 
 priority 1000
 snippet "braket" "braket notation for scalar product" rwA
@@ -693,9 +765,9 @@ snippet span "span" wi
 \langle $1 \rangle $0
 endsnippet
 
-snippet LL "L(V,W)" iA
-\mathcal{L}($1,$2)$0
-endsnippet
+#snippet LL "L(V,W)" iA
+#\mathcal{L}($1,$2)$0
+#endsnippet
 
 snippet dim "dimension"
 \text{dim}($1)$0
@@ -762,15 +834,23 @@ snippet "Mor" "Morphisms" rw
 endsnippet
 
 snippet "Id" "Identity morphisms" rw
-\text{Id}_{$1}$0
+\text{Id}_
 endsnippet
 
+#snippet "Fun" "Functors" rw
+#[$1,$2]$0
+#endsnippet
+
 snippet "Fun" "Functors" rw
-[$1,$2]$0
+\text{Fun}($1,$2)$0
 endsnippet
 
 snippet "Nat" "Natural transformations" rw
 \text{Nat}_{[$1,$2]}($3,$4)$0
+endsnippet
+
+snippet "lim" "Limit" rw
+\text{$1lim}_$0
 endsnippet
 
 snippet "Hom" "Hom functor" rw
@@ -786,15 +866,27 @@ snippet "End" "Endomorphisms" rw
 endsnippet
 
 snippet "Map" "Maps" rw
-\text{Map}($1,$2)$0
+\text{Map}_$1($2,$3)$0
 endsnippet
 
 snippet "Smd" "Direct summands" rw
 \text{Smd}($1)$0
 endsnippet
 
-snippet "Sets" "Sets Category" rw
-\text{Sets}$0
+snippet "Set" "Sets Category" rw
+\text{$1Set}$0
+endsnippet
+
+snippet "PSh" "Presheaves Category" rw
+\text{PSh}($1)$0
+endsnippet
+
+snippet "Cat" "Small categories category" rw
+\text{Cat}$0
+endsnippet
+
+snippet "Spn" "n-Spine" rw
+\text{Sp}_n$0
 endsnippet
 
 snippet "Grp" "Groups Category" rw
@@ -810,7 +902,7 @@ snippet "Rings" "Rings Category" rw
 endsnippet
 
 snippet "Mod" "Module Category" rw
-\text{Mod}($1)$0
+\text{$1Mod}$2)$0
 endsnippet
 
 snippet "mod" "Finitely Generated Module Category" rw
@@ -912,11 +1004,51 @@ $0
 endsnippet
 
 snippet "Proj" "Projective class" rw
-\text{Proj}($1)$0
+\text{Proj}_$1($2)$0
 endsnippet
 
 snippet "Inj" "Injective class" rw
-\text{Inj}($1)$0
+\text{Inj}_$1($2)$0
+endsnippet
+
+snippet "pdim" "Projective dimension" rw
+\text{pdim}($1)$0
+endsnippet
+
+snippet "idim" "Injective dimension" rw
+\text{idim}($1)$0
+endsnippet
+
+snippet "Cn" "Cone class" rw
+\text{Cone}($1,$2)$0
+endsnippet
+
+snippet "Ccn" "Cocone class" rw
+\text{Cocone}($1,$2)$0
+endsnippet
+
+snippet add "Generated additive subcategory" i
+\text{add}($1)$0
+endsnippet
+
+snippet Add "Generated Additive subcategory" i
+\text{Add}($1)$0
+endsnippet
+
+snippet Prod "Generated Productive? subcategory" i
+\text{Prod}($1)$0
+endsnippet
+
+snippet Cogen "Class of largely cogenerated modules" i
+\text{Cogen}($1)$0
+endsnippet
+
+snippet Gen "Class of Generated modules" i
+\text{Gen}($1)$0
+endsnippet
+
+snippet thick "thick subcategory" i
+\text{thick}($1)$0
 endsnippet
 
 ########## Miscellaneous ##########
@@ -925,3 +1057,131 @@ snippet ## "sharp" iA
 \sharp
 endsnippet
 
+snippet aRing "artinian ring" iA
+\artinianRing
+endsnippet
+
+snippet hCat "homotopy category" iA
+\homotopyCat
+endsnippet
+
+snippet cCat "complex category" iA
+\complexCat
+endsnippet
+
+snippet dCat "derived category" iA
+\derivedCat
+endsnippet
+
+snippet eCat "extriangulated category" iA
+\extriangulatedCat
+endsnippet
+
+snippet tCat "triangulated category" iA
+\triangulatedCat
+endsnippet
+
+snippet tTrip "triangulated triple" iA
+\triangulatedTriple
+endsnippet
+
+snippet aCat "abelian category" iA
+\abelianCat
+endsnippet
+
+snippet sFunc "shift functor" iA
+\shiftFunc[$1]{$2}$0
+endsnippet
+
+snippet eFunc "additive bifunctor" iA
+\extFunc
+endsnippet
+
+snippet eTrip "extriangulated triple" iA
+\extriangulatedTriple
+endsnippet
+
+snippet aReal "additive realization" iA
+\additiveReal
+endsnippet
+
+snippet cPair "cotorsion pair" iA
+\cotorsionPair
+endsnippet
+
+snippet cKernel "cotorsion pair" iA
+\cotorsionKernel
+endsnippet
+
+snippet cClass "cotorsion class" iA
+\cotorsionClass
+endsnippet
+
+snippet cfClass "cotorsionfree class" iA
+\cotorsionfreeClass
+endsnippet
+
+snippet pd "projective dimension" wi
+\text{pd}($1)$0
+endsnippet 
+
+snippet id "injective dimension" wi
+\text{id}($1)$0
+endsnippet 
+
+snippet gld "global dimension" wi
+\text{gl.dim}($1)$0
+endsnippet 
+
+snippet domd "dominant dimension" wi
+\text{dom.dim}($1)$0
+endsnippet 
+
+snippet codd "codominant dimension" wi
+\text{codom.dim}($1)$0
+endsnippet 
+
+snippet sconf "s-conflation" wi
+$\additiveReal$-conflation
+endsnippet 
+
+snippet kQ "path algebra" wi
+(\mathbbm{k}Q)^{($0)}
+endsnippet
+
+snippet smd "summands subcategory" wi
+\text{smd}($1)$0
+endsnippet
+
+snippet filt "filtrated objects" wi
+\text{filt}($1)$0
+endsnippet
+
+snippet sCat "subcategory" iA
+\subcat
+endsnippet
+
+#snippet dCat "derived category" iA
+#\derivedCat
+#endsnippet
+
+snippet "Sp" "Spectrum" rw
+\textbf{Sp}($1)$0
+endsnippet
+
+snippet "Zg" "Ziegler spectrum" rw
+\textbf{Zg}($1)$0
+endsnippet
+
+snippet "MR" "Ziegler spectrum" rw
+\text{MaxRigid}($1)$0
+endsnippet
+
+########## Infinity Category Theory ##########
+snippet "Dlt" "Delta" rw
+\Delta
+endsnippet
+
+snippet "phnt" "phantom" rw
+\phantom{.}
+endsnippet

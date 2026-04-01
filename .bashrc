@@ -12,7 +12,7 @@ alias bib="pybibget"
 alias brilliant="vim -p ~/Elm/alganim/src/DraggableVector.elm ~/Elm/alganim/src/PlaneCoordinates.elm"
 alias bton="sudo rfkill block wlan && sudo rc-service bluetoothd start"
 alias btoff="sudo rfkill unblock wlan && sudo rc-service bluetoothd stop"
-alias btr="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
+alias btr="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage"
 alias cat="bat"
 alias dw="termdown -abs -c 900 2h -T 'deep work' -t 'rest time' --no-figlet"
 alias ert="cd ~/Elm/beginning-elm/ && elm reactor"
@@ -38,8 +38,8 @@ alias zathura="devour zathura"
 mymount() { doas mount $1 $2 -o umask=000 ; }
 
 #
-lecture() { vim -p ~/Downloads/kobo/Doctorado/Notes/$1/$1.tex ~/.vim/UltiSnips/tex.snippets ~/Downloads/kobo/Doctorado/Notes/misc.bib ~/Downloads/kobo/Doctorado/Notes/$1/$1Notes.tex ~/Downloads/kobo/Doctorado/Notes/$1/$1Slides.tex ; }
-draft() { vim -p ~/Downloads/kobo/Doctorado/Drafts/$1/$1.tex ~/Downloads/kobo/Doctorado/Notes/pre.tex ~/.vim/UltiSnips/tex.snippets ~/Downloads/kobo/Doctorado/Notes/misc.bib ~/Downloads/kobo/Doctorado/Drafts/$1/$1.log ; }
+lct() { vim -p ~/Downloads/kobo/Doctorado/Notes/$1/$1.tex ~/.vim/UltiSnips/tex.snippets ~/Downloads/kobo/Doctorado/Notes/misc.bib ~/Downloads/kobo/Doctorado/Notes/$1/$1Notes.log ; }
+dft() { vim -p ~/Downloads/kobo/Doctorado/Drafts/$1/$1.tex ~/Downloads/kobo/Doctorado/Notes/pre.tex ~/.vim/UltiSnips/tex.snippets ~/Downloads/kobo/Doctorado/Notes/misc.bib ~/Downloads/kobo/Doctorado/Drafts/$1/$1.log ; }
 
 # Change Logitech G300s mouse color
 colour() { doas ratslap --modify F3 --colour $1 ; }
