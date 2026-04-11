@@ -3,6 +3,12 @@
 # Keyboard Layout
 setxkbmap us altgr-intl
 
+# Keyboard bindings
+xbindkeys
+
+# Turn off bluetooth adapter
+rfkill block bluetooth
+
 # If DisplayPort output is detected, make it primary and open xrandr GUI
 if xrandr --listmonitors | grep 'DisplayPort'; then
     xrandr --output DisplayPort-1 --primary &
@@ -24,11 +30,11 @@ picom -f &
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
-# Start up pipewire (leave near end)
+# Start up pipewire (leave near end) and set volume to 25/100
 /usr/bin/pipewire &
 /usr/bin/pipewire-pulse &
 /usr/bin/wireplumber &
-/usr/bin/pamixer --set-volume 25 &
+/usr/bin/pamixer --set-volume 30 &
 
 # Activate numlock
 #numlockx on &

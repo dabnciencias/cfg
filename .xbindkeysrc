@@ -1,0 +1,41 @@
+# Goes in ~/.xbindkeysrc
+
+# Toggle volume mute
+"pamixer -t"
+    XF86AudioMute
+
+# Decrease volume
+"pamixer -d 10"
+    XF86AudioLowerVolume
+
+# Increase volume
+"pamixer -i 10"
+    XF86AudioRaiseVolume
+
+# Toggle microphone mute
+"pamixer --default-source -t"
+    XF86AudioMicMute
+
+# Decrease brightness
+"light -U 10"
+    XF86MonBrightnessDown
+
+# Increase brightness
+"light -A 10"
+    XF86MonBrightnessUp
+
+# Open xrandr GUI
+"arandr"
+    XF86Display
+
+# Toggle wlan
+"rfkill toggle wlan"
+    XF86WLAN
+
+# Open xmonad configuration file
+"st -f Monospace-20 -e vim ~/.xmonad/xmonad.hs"
+    XF86Tools
+
+# Open blueman-manager
+"blueman-manager"
+    XF86Bluetooth

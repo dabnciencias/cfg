@@ -118,6 +118,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- open xournal 
     , ((modm,               xK_x     ), spawn "xournalpp")
 
+    -- open pdfarranger 
+    , ((modm .|. shiftMask, xK_p     ), spawn "pdfarranger")
+
     -- launch icecat
     , ((modm,               xK_w     ), spawn "icecat")
 
@@ -151,14 +154,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch vifm scratchpad
     , ((modm,               xK_f     ), namedScratchpadAction scratchpads "vifm")
 
-    -- toggle pavucontrol scratchpad
-    , ((modm,               xK_a     ), namedScratchpadAction scratchpads "pavucontrol")
-
-    -- toggle blueman-manager scratchpad
-    , ((modm .|. shiftMask, xK_a     ), namedScratchpadAction scratchpads "blueman-manager")
-
     -- toggle mocp scratchpad
     , ((modm .|. shiftMask, xK_m     ), namedScratchpadAction scratchpads "mocp")
+
+    -- toggle pavucontrol scratchpad
+    , ((modm,               xK_a     ), namedScratchpadAction scratchpads "pavucontrol")
 
     ]
 
@@ -216,6 +216,7 @@ myManageHook = composeAll
   , className =? "QjackCtl" --> doRectFloat (W.RationalRect (1 % 1) (1 % 1) (4 % 10) (1 % 7))
   , className =? "firefox" <&&> title =? "Picture-in-Picture" --> doFloat
   , className =? "LibreWolf" <&&> title =? "Picture-in-Picture" --> doFloat
+  , className =? "Blueman-applet" <&&> title =? "Adventure mode" --> doHideIgnore
   ]
 
 -------------------------------------------------------------
@@ -243,13 +244,10 @@ scratchpads = [ NS "st" "st -n st -f Monospace-20" (resource =? "st")
         , NS "vifm" "st -n vifm -f Monospace-20 -e vifm" (resource =? "vifm")
         (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19))
 
-        , NS "pavucontrol" "st -n pavucontrol -f Monospace-20 -e pavucontrol" (resource =? "pavucontrol")
-        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19))
-
-        , NS "blueman-manager" "st -n blueman-manager -f Monospace-20 -e blueman-manager" (resource =? "blueman-manager")
-        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19))
-
         , NS "mocp" "st -n mocp -f Monospace-20 -e mocp" (resource =? "mocp")
+        (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19))
+
+        , NS "pavucontrol" "st -n pavucontrol -e pavucontrol" (resource =? "pavucontrol")
         (customFloating $ W.RationalRect (1/31) (1/19) (29/31) (17/19))
 
   ]
