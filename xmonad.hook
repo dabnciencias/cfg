@@ -10,4 +10,4 @@ Target = xmonad
 [Action]
 Description = Recompiling xmonad...
 When = PostTransaction
-Exec = /usr/bin/sudo -u diek /usr/bin/xmonad --recompile
+Exec = /usr/bin/sudo -u dabn /usr/bin/xmonad --recompile

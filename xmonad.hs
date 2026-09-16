@@ -151,7 +151,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- toggle st scratchpad
     , ((modm,               xK_s     ), namedScratchpadAction scratchpads "st")
 
-    -- launch vifm scratchpad
+    -- toggle vifm scratchpad
     , ((modm,               xK_f     ), namedScratchpadAction scratchpads "vifm")
 
     -- toggle mocp scratchpad
@@ -201,6 +201,7 @@ myManageHook = composeAll
   , title =? "Media viewer" --> doFloat 
   , title =? " " --> doFloat
   , className =? "pavucontrol" --> doCenterFloat
+  , className =? "Arandr" --> doRectFloat (W.RationalRect (1/31) (1/19) (29/31) (17/19))
   , className =? "Steam" --> doShift "9"
   , title =? "Stephen's Sausage Roll" --> doFullFloat
   , title =? "Pony Island" --> doFullFloat
